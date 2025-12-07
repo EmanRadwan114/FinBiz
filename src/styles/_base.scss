@@ -1,0 +1,15 @@
+@use "./variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: variables.$font-size-base;
+}
+
+body {
+  font-family: variables.$font-family-default;
+}

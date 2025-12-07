@@ -1,0 +1,5 @@
+@mixin generateThemeVars($map) {
+  @each $key, $val in $map {
+    --#{$key}: $val;
+  }
+}

@@ -8,7 +8,9 @@ import Pages from "./pages/Pages.tsx";
 import Integrations from "./pages/Integrations.tsx";
 import Blog from "./pages/Blog.tsx";
 import Pricing from "./pages/Pricing.tsx";
-import "./index.css";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/inter/400.css";
+import "./index.scss";
 
 const router = createBrowserRouter([
   {

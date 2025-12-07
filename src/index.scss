@@ -1,0 +1,7 @@
+@use "./styles/base";
+@use "./styles/variables";
+@use "./styles/mixins";
+
+:root {
+  @include mixins.generateThemeVars(variables.$theme-color);
+}
