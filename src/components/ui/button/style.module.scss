@@ -1,0 +1,38 @@
+.btn {
+  --btn-bg: var(--dark-color-5);
+  --btn-color: var(--base-color-light);
+
+  &.default-btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+  }
+
+  &.rounded-btn {
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+  }
+
+  &.outlined-btn {
+    border-width: 1px 1px 0 1px;
+    border-radius: 64px;
+    -webkit-border-radius: 64px;
+    -moz-border-radius: 64px;
+    -ms-border-radius: 64px;
+    -o-border-radius: 64px;
+  }
+}
+
+:global(html.dark) {
+  .btn {
+    --btn-bg: var(--light-color-1) !important;
+    --btn-color: var(--dark-color-5) !important;
+  }
+}

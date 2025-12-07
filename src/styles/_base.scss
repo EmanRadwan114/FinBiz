@@ -10,6 +10,14 @@
   font-size: variables.$font-size-base;
 }
 
-body {
+body,
+button {
   font-family: variables.$font-family-default;
+}
+
+button {
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
