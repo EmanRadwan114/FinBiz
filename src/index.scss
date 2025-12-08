@@ -16,7 +16,7 @@ body {
   margin: 0 auto;
 
   @include mixins.minScreen(2xl) {
-    max-width: 80%;
+    max-width: 86.5%;
   }
 }
 

@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
             <ul>
               {companyLinks.map((link) => (
                 <li key={link}>
-                  <Link to={"#"}>{link}</Link>
+                  <Link to={"/"}>{link}</Link>
                 </li>
               ))}
             </ul>
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
             <ul>
               {helpLinks.map((link) => (
                 <li key={link}>
-                  <Link to={"#"}>{link}</Link>
+                  <Link to={"/"}>{link}</Link>
                 </li>
               ))}
             </ul>
