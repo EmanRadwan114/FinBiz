@@ -7,6 +7,7 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   paddingHorizontal?: number | string;
   color?: string;
   bgColor?: string;
+  borderColor?: string;
 }
 
 const Button: React.FC<IProps> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<IProps> = ({
   paddingVertical = 15,
   color,
   bgColor,
+  borderColor = "black",
   ...rest
 }) => {
   return (
@@ -26,6 +28,7 @@ const Button: React.FC<IProps> = ({
         backgroundColor: bgColor,
         paddingInline: paddingHorizontal,
         paddingBlock: paddingVertical,
+        borderColor,
       }}
       {...rest}
     >

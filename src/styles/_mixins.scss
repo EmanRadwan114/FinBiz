@@ -1,5 +1,29 @@
+@use "./variables";
+
+//generate css variables from scss variables
 @mixin generateThemeVars($map) {
   @each $key, $val in $map {
     --#{$key}: #{$val};
+  }
+}
+
+/// Max-width breakpoint
+@mixin maxScreen($size) {
+  @media (max-width: map-get(variables.$breakpoints, $size)) {
+    @content;
+  }
+}
+
+/// Min-width breakpoint
+@mixin minScreen($size) {
+  @media (min-width: map-get(variables.$breakpoints, $size)) {
+    @content;
+  }
+}
+
+/// Between two breakpoints
+@mixin minMaxScreen($min, $max) {
+  @media (min-width: map-get(variables.$breakpoints, $min)) and (max-width: map-get(variables.$breakpoints, $max)) {
+    @content;
   }
 }

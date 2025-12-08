@@ -22,11 +22,13 @@
 
   &.outlined-btn {
     border-width: 1px 1px 0 1px;
+    border-style: solid;
     border-radius: 64px;
     -webkit-border-radius: 64px;
     -moz-border-radius: 64px;
     -ms-border-radius: 64px;
     -o-border-radius: 64px;
+    margin-top: 50px;
   }
 }
 
