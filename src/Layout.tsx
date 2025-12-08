@@ -7,11 +7,11 @@ import Footer from "./components/footer/Footer";
 const Layout: React.FC = () => {
   return (
     <ThemeProvider attribute="class">
+      <Navbar />
       <div className="container">
-        <Navbar />
         <Outlet />
-        <Footer />
       </div>
+      <Footer />
     </ThemeProvider>
   );
 };

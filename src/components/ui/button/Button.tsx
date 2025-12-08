@@ -2,7 +2,7 @@ import React, { type ButtonHTMLAttributes } from "react";
 import styles from "./style.module.scss";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "rounded" | "outlined";
+  variant?: "default" | "rounded" | "outlined" | "none";
   paddingVertical?: number | string;
   paddingHorizontal?: number | string;
   color?: string;

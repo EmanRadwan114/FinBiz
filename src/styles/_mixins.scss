@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "./variables";
 
 //generate css variables from scss variables
@@ -9,21 +10,35 @@
 
 /// Max-width breakpoint
 @mixin maxScreen($size) {
-  @media (max-width: map-get(variables.$breakpoints, $size)) {
+  @media (max-width: map.get(variables.$breakpoints, $size)) {
     @content;
   }
 }
 
 /// Min-width breakpoint
 @mixin minScreen($size) {
-  @media (min-width: map-get(variables.$breakpoints, $size)) {
+  @media (min-width: map.get(variables.$breakpoints, $size)) {
     @content;
   }
 }
 
 /// Between two breakpoints
 @mixin minMaxScreen($min, $max) {
-  @media (min-width: map-get(variables.$breakpoints, $min)) and (max-width: map-get(variables.$breakpoints, $max)) {
+  @media (min-width: map.get(variables.$breakpoints, $min)) and (max-width: map.get(variables.$breakpoints, $max)) {
     @content;
   }
+}
+
+//flex
+@mixin displayFlex(
+  $justify: center,
+  $align: center,
+  $gap: 8px,
+  $direction: row
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
 }
