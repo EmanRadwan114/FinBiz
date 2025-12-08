@@ -4,7 +4,7 @@
   --btn-bg: variables.$dark-color-5;
   --btn-color: variables.$base-color-light;
   font-weight: 500;
-  font-size: 16px;
+  font-size: variables.$font-size-base;
 
   &.default-btn {
     background-color: var(--btn-bg);

@@ -16,7 +16,7 @@ button {
 }
 
 button {
-  font-size: 1rem;
+  font-size: variables.$font-size-base;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -24,8 +24,14 @@ button {
 
 a {
   text-decoration: none;
+  color: inherit;
+  margin-bottom: -4px;
 
   &:visited {
     color: inherit;
   }
+}
+
+ul {
+  list-style-type: none;
 }

@@ -1,0 +1,54 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.input-group {
+  @include mixins.displayFlex(space-between, stretch, 0);
+  background-color: variables.$base-color-light;
+  width: 100%;
+
+  &,
+  & > * {
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+  }
+
+  .input {
+    background-color: transparent;
+    padding-inline: 20px;
+    padding-block: 15px;
+    border: none;
+    line-height: 22px;
+
+    &,
+    &::placeholder {
+      color: variables.$dark-color-5;
+      font-size: 16px;
+      line-height: 22px;
+      font-family: variables.$font-family-default;
+    }
+
+    &:focus-within {
+      outline: none;
+    }
+  }
+
+  button {
+    background-color: variables.$primary-bg-color;
+    color: variables.$light-color-5;
+    font-size: variables.$font-size-base;
+    font-weight: 700;
+    line-height: 28px;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+}
+
+//———————————————————————————————— dark theme ————————————————————————————————
+:global(html.dark) {
+  .input-group {
+    background-color: variables.$dark-color-7;
+  }
+}
