@@ -5,11 +5,12 @@ import { FaChevronDown } from "react-icons/fa6";
 import { PiMoonThin, PiSunThin } from "react-icons/pi";
 import Button from "../ui/button/Button";
 import { useTheme } from "next-themes";
+import { Link } from "react-router";
 
 const navLinks = ["product", "pages", "integrations", "blog", "pricing"];
 
 const Navbar: React.FC = () => {
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState("ar");
   const { resolvedTheme, setTheme } = useTheme();
 
   //———————————————————————————————— handlers ————————————————————————————————
@@ -25,17 +26,21 @@ const Navbar: React.FC = () => {
       <nav className={styles.navbar}>
         <div className={styles.container}>
           {/* logo */}
-          <div className={styles.logo}>
-            <img src={logo} alt="finbizz brand logo" />
-            <p>FinBiz</p>
-          </div>
+          <Link to="/">
+            <div className={styles.logo}>
+              <img src={logo} alt="finbizz brand logo" />
+              <p>FinBiz</p>
+            </div>
+          </Link>
 
           {/* navlinks */}
           <ul className={styles["nav-links"]}>
             {navLinks.map((link) => (
-              <li>
-                {link}
-                {link === "pages" && <FaChevronDown size={12} />}
+              <li key={link}>
+                <Link to={link}>
+                  {link}
+                  {link === "pages" && <FaChevronDown size={12} />}
+                </Link>
               </li>
             ))}
           </ul>
