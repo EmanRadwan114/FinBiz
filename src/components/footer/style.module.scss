@@ -1,0 +1,137 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+footer {
+  margin-top: auto;
+  background-color: variables.$gray-color-8;
+  padding-block-start: 98px;
+
+  .container {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+
+  .footer-content {
+    @include mixins.displayFlex(start, stretch, 138px);
+    padding-block: 47px;
+
+    h2 {
+      color: variables.$dark-color-5;
+      margin-bottom: 32px;
+      font-weight: 700;
+      font-size: variables.$font-size-20;
+    }
+
+    ul {
+      @include mixins.displayFlex(start, stretch, 24px, column);
+      color: variables.$gray-color-3;
+      font-size: variables.$font-size-base;
+      line-height: 100%;
+    }
+  }
+
+  .first-col {
+    .logo {
+      @include mixins.displayFlex(start);
+      margin-block-end: 32px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+      p {
+        font-size: variables.$font-size-24;
+        font-weight: 600;
+        font-family: variables.$font-family-inter;
+        color: variables.$dark-color-5;
+      }
+    }
+
+    & > p {
+      color: variables.$gray-color-3;
+      font-size: variables.$font-size-20;
+      margin-bottom: 16px;
+      line-height: 160%;
+    }
+
+    .social-icons {
+      @include mixins.displayFlex(start, center, 12px);
+
+      .icon {
+        @include mixins.displayFlex(center, center);
+
+        cursor: pointer;
+        color: variables.$dark-color-5;
+        padding: 2px;
+        width: 36px;
+        height: 36px;
+        background-color: variables.$light-color-1;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+
+        &:nth-of-type(2) {
+          background-color: variables.$blue-color-100;
+          color: variables.$base-color-light;
+        }
+      }
+    }
+  }
+
+  .fourth-col {
+    flex-grow: 1;
+  }
+
+  .copyright {
+    color: variables.$gray-color-3;
+    text-align: center;
+    font-size: variables.$font-size-14;
+    line-height: 20px;
+    padding-block: 46px;
+    border-top: 1px solid variables.$gray-color-7;
+  }
+}
+
+//———————————————————————————————— dark theme ————————————————————————————————
+:global(html.dark) {
+  footer {
+    background-color: variables.$dark-color-1;
+
+    h2 {
+      color: variables.$light-color-5;
+    }
+
+    ul {
+      color: variables.$gray-color-6;
+    }
+
+    .first-col {
+      p {
+        color: variables.$gray-color-6;
+      }
+
+      .logo > p {
+        color: variables.$light-color-6;
+      }
+
+      .social-icons > .icon:not(:nth-of-type(2)) {
+        background-color: variables.$gray-color-2;
+        color: variables.$base-color-light;
+      }
+    }
+
+    .fourth-col input[type="email"] {
+      &,
+      &::placeholder {
+        color: variables.$base-color-light !important;
+      }
+    }
+
+    .copyright {
+      border-color: variables.$gray-color-1;
+      color: variables.$light-color-5;
+    }
+  }
+}
