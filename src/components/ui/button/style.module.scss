@@ -1,6 +1,10 @@
+@use "@/styles/variables";
+
 .btn {
-  --btn-bg: var(--dark-color-5);
-  --btn-color: var(--base-color-light);
+  --btn-bg: variables.$dark-color-5;
+  --btn-color: variables.$base-color-light;
+  font-weight: 500;
+  font-size: 16px;
 
   &.default-btn {
     background-color: var(--btn-bg);
@@ -21,6 +25,8 @@
   }
 
   &.outlined-btn {
+    background-color: variables.$light-color-4;
+    border-color: variables.$dark-color-8 !important;
     border-width: 1px 1px 0 1px;
     border-style: solid;
     border-radius: 64px;
@@ -28,13 +34,23 @@
     -moz-border-radius: 64px;
     -ms-border-radius: 64px;
     -o-border-radius: 64px;
-    margin-top: 50px;
+  }
+  &.none-btn {
+    background-color: transparent;
+    padding-inline: 0 !important;
+    padding-block: 0 !important;
   }
 }
 
 :global(html.dark) {
   .btn {
-    --btn-bg: var(--light-color-1) !important;
-    --btn-color: var(--dark-color-5) !important;
+    --btn-bg: variables.$light-color-1 !important;
+    --btn-color: variables.$dark-color-5 !important;
+
+    &.outlined-btn {
+      color: variables.$light-color-6;
+      background-color: variables.$dark-color-6;
+      border-color: variables.$dark-color-8;
+    }
   }
 }

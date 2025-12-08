@@ -1,0 +1,87 @@
+@use "@/styles/mixins";
+@use "@/styles/variables";
+
+.header {
+  background-color: variables.$base-color-light;
+  padding: 20px 0;
+}
+
+.navbar {
+  color: variables.$dark-color-5;
+
+  .container {
+    @include mixins.displayFlex(space-between);
+    margin: 0 auto;
+
+    @include mixins.minScreen(2xl) {
+      max-width: 1400px;
+    }
+
+    padding-inline: 40px;
+
+    & > * {
+      width: 100% / 3;
+    }
+  }
+}
+
+.logo {
+  @include mixins.displayFlex(start);
+  img {
+    width: 18px;
+    height: 18px;
+  }
+  p {
+    font-size: 20px;
+    font-family: variables.$font-family-inter;
+    font-weight: 600;
+  }
+}
+
+.nav-links {
+  list-style-type: none;
+  @include mixins.displayFlex(start);
+
+  li {
+    text-transform: capitalize;
+    font-size: 18px;
+    padding: 8px;
+    @include mixins.displayFlex(start, center, 4px);
+  }
+}
+
+.nav-actions {
+  @include mixins.displayFlex(start, center, 16px);
+
+  & > * {
+    color: variables.$dark-color-5;
+  }
+
+  & > *:not(button) {
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .lang > button {
+    font-size: 18px;
+  }
+}
+
+//———————————————————————————————— dark mode ————————————————————————————————
+:global(html.dark) {
+  .header {
+    background-color: variables.$dark-color-1;
+  }
+
+  .logo > p {
+    color: variables.$light-color-6;
+  }
+
+  .nav-links > li {
+    color: variables.$gray-color-5;
+  }
+
+  .nav-actions > * {
+    color: variables.$light-color-6;
+  }
+}
