@@ -10,7 +10,7 @@
   color: variables.$dark-color-5;
 
   .container {
-    @include mixins.displayFlex(space-between);
+    @include mixins.displayFlex();
     margin: 0 auto;
 
     @include mixins.minScreen(2xl) {
@@ -20,7 +20,7 @@
     padding-inline: 40px;
 
     & > * {
-      width: 100% / 3;
+      width: calc(100% / 3);
     }
   }
 }
@@ -46,12 +46,13 @@
     text-transform: capitalize;
     font-size: 18px;
     padding: 8px;
-    @include mixins.displayFlex(start, center, 4px);
+    @include mixins.displayFlex(start, center, 4.5px);
   }
 }
 
 .nav-actions {
-  @include mixins.displayFlex(start, center, 16px);
+  @include mixins.displayFlex(end, center, 16px);
+  margin-left: auto;
 
   & > * {
     color: variables.$dark-color-5;
@@ -64,6 +65,7 @@
 
   .lang > button {
     font-size: 18px;
+    padding-inline: 1px;
   }
 }
 
