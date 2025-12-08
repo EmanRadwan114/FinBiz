@@ -5,3 +5,11 @@
 :root {
   @include mixins.generateThemeVars(variables.$theme-color);
 }
+
+.container {
+  margin: 0 auto;
+
+  @include mixins.minScreen(2xl) {
+    max-width: 80%;
+  }
+}
