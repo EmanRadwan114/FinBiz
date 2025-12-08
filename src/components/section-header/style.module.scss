@@ -1,0 +1,6 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.content {
+  @include mixins.displayFlex(start, stretch, 16px, column);
+}

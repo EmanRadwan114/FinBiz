@@ -8,6 +8,7 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: string;
   bgColor?: string;
   borderColor?: string;
+  className?: string;
 }
 
 const Button: React.FC<IProps> = ({
@@ -18,11 +19,14 @@ const Button: React.FC<IProps> = ({
   color,
   bgColor,
   borderColor = "black",
+  className,
   ...rest
 }) => {
   return (
     <button
-      className={`${styles.btn} ${styles[`${variant}-btn`]}`}
+      className={`${styles.btn} ${styles[`${variant}-btn`]} ${
+        className && className
+      }`}
       style={{
         color,
         backgroundColor: bgColor,

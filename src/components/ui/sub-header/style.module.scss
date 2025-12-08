@@ -1,0 +1,42 @@
+@use "@/styles/mixins";
+@use "@/styles/variables";
+
+.box {
+  @include mixins.displayFlex(start, center, 4px);
+
+  border-width: 1px 1px 0.5px 1px;
+  border-color: variables.$primary-border-color !important;
+  border-style: inset;
+
+  background-color: variables.$primary-color-dark;
+  padding: 8px 12px;
+
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  -ms-border-radius: 32px;
+  -o-border-radius: 32px;
+
+  .icon,
+  .text {
+    color: variables.$dark-color-5;
+  }
+
+  .text {
+    font-size: variables.$font-size-14;
+    font-weight: 500;
+    line-height: 16.8px;
+    text-transform: capitalize;
+  }
+}
+
+//———————————————————————————————— dark theme ————————————————————————————————
+:global(html.dark) {
+  .box {
+    background-color: variables.$primary-color-dark;
+    .icon,
+    .text {
+      color: variables.$primary-bg-color;
+    }
+  }
+}
