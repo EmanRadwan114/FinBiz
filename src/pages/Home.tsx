@@ -1,7 +1,12 @@
 import React from "react";
+import UpgradeSection from "../components/upgrade/UpgradeSection";
 
 const Home: React.FC = () => {
-  return <>Home</>;
+  return (
+    <>
+      <UpgradeSection />
+    </>
+  );
 };
 
 export default Home;

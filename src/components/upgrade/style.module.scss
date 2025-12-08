@@ -1,0 +1,83 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.upgrade-sec {
+  padding-block: 115px;
+
+  .card {
+    @include mixins.displayFlex(space-between, center);
+
+    background-color: variables.$base-color-light;
+    padding: 19px;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+
+    .end-col {
+      img {
+        border-radius: 34px;
+        -webkit-border-radius: 34px;
+        -moz-border-radius: 34px;
+        -ms-border-radius: 34px;
+        -o-border-radius: 34px;
+        width: 100%;
+      }
+    }
+
+    .start-col {
+      @include mixins.displayFlex();
+      padding-inline-start: 60px;
+      width: 50%;
+
+      p {
+        font-weight: 700;
+        font-size: 72px;
+        line-height: 86px;
+        color: variables.$dark-color-5;
+        margin-bottom: 56px;
+      }
+    }
+
+    .btns {
+      @include mixins.displayFlex(start, center, 22px);
+
+      button {
+        font-weight: 500;
+        font-size: variables.$font-size-18;
+        padding-inline: 0 !important;
+        width: 240px;
+      }
+
+      button:first-of-type {
+        background-color: variables.$primary-bg-color;
+        color: variables.$dark-color-5;
+      }
+      button:last-of-type {
+        background-color: variables.$dark-color-5;
+        color: variables.$base-color-light;
+      }
+    }
+  }
+}
+
+//———————————————————————————————— dark theme ————————————————————————————————
+:global(html.dark) {
+  .upgrade-sec {
+    .card {
+      background-color: variables.$dark-color-1;
+
+      p {
+        color: variables.$base-color-light;
+      }
+
+      .btns {
+        button:last-of-type {
+          background-color: variables.$base-color-light;
+          color: variables.$dark-color-5;
+        }
+      }
+    }
+  }
+}
