@@ -2,20 +2,36 @@
 @use "@/styles/variables";
 
 .box {
-  @include mixins.displayFlex(start, center, 4px);
-
-  border-width: 1px 1px 0.5px 1px;
-  border-color: variables.$primary-border-color !important;
-  border-style: inset;
-
-  background-color: variables.$primary-color-dark;
+  @include mixins.displayFlex(center, center, 4px);
+  position: relative;
   padding: 8px 12px;
+  width: fit-content;
+  border: 1px solid variables.$primary-border-color;
+  border-bottom: none;
 
-  border-radius: 32px;
-  -webkit-border-radius: 32px;
-  -moz-border-radius: 32px;
-  -ms-border-radius: 32px;
-  -o-border-radius: 32px;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0 0.35px variables.$primary-border-color;
+  }
+
+  &,
+  &::after {
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    -ms-border-radius: 32px;
+    -o-border-radius: 32px;
+  }
+
+  .icon > * {
+    max-width: 13px;
+    max-height: 13px;
+  }
 
   .icon,
   .text {
@@ -24,7 +40,7 @@
 
   .text {
     font-size: variables.$font-size-14;
-    font-weight: 500;
+    font-weight: 500 !important;
     line-height: 16.8px;
     text-transform: capitalize;
   }

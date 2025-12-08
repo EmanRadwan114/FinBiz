@@ -18,7 +18,7 @@ const Button: React.FC<IProps> = ({
   paddingVertical = 15,
   color,
   bgColor,
-  borderColor = "black",
+  borderColor,
   className,
   ...rest
 }) => {

@@ -25,16 +25,33 @@
   }
 
   &.outlined-btn {
+    position: relative;
     background-color: variables.$light-color-4;
-    border-color: variables.$dark-color-8 !important;
+    border-color: variables.$dark-color-8;
     border-width: 1px 1px 0 1px;
-    border-style: inset;
-    border-radius: 64px;
-    -webkit-border-radius: 64px;
-    -moz-border-radius: 64px;
-    -ms-border-radius: 64px;
-    -o-border-radius: 64px;
+    border-style: solid;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -1px;
+      right: -1px;
+      bottom: 0;
+      top: 1px;
+      border: none;
+      border-bottom: 1px solid variables.$light-color-4;
+    }
+
+    &,
+    &::after {
+      border-radius: 64px;
+      -webkit-border-radius: 64px;
+      -moz-border-radius: 64px;
+      -ms-border-radius: 64px;
+      -o-border-radius: 64px;
+    }
   }
+
   &.none-btn {
     background-color: transparent;
     padding-inline: 0 !important;
@@ -51,6 +68,10 @@
       color: variables.$light-color-6;
       background-color: variables.$dark-color-6;
       border-color: variables.$dark-color-8;
+
+      &::after {
+        border-bottom: 1px solid variables.$dark-color-1 !important;
+      }
     }
   }
 }
