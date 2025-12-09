@@ -88,8 +88,6 @@
       @include mixins.displayFlex(center, center, 8px, column);
 
       .users-imgs {
-        // @include mixins.displayFlex(center, center, -4px);
-
         img {
           width: 32px;
           height: 32px;

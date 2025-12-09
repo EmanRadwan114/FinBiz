@@ -9,9 +9,7 @@ const Layout: React.FC = () => {
     <ThemeProvider attribute="class">
       <div className="layout">
         <Navbar />
-        <div className="container">
-          <Outlet />
-        </div>
+        <Outlet />
         <Footer />
       </div>
     </ThemeProvider>

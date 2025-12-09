@@ -12,38 +12,40 @@ const PricingTable: React.FC = () => {
 
   return (
     <section className={styles["pricing-section"]}>
-      {/* header */}
-      <SectionHeader
-        icon={
-          <img
-            src={resolvedTheme === "light" ? pricingImgLight : pricingImgDark}
-            alt="pricing icon"
-          />
-        }
-        subTitle="Pricing"
-      >
-        <h2>Find the right plan</h2>
-        <p>
-          "Invest in your company's future with our comprehensive financial
-          solution. Contact us for pricing details and see how we can help you
-          streamline your finances and reach your business goals.
-        </p>
-      </SectionHeader>
+      <div className="container">
+        {/* header */}
+        <SectionHeader
+          icon={
+            <img
+              src={resolvedTheme === "light" ? pricingImgLight : pricingImgDark}
+              alt="pricing icon"
+            />
+          }
+          subTitle="Pricing"
+        >
+          <h2>Find the right plan</h2>
+          <p>
+            "Invest in your company's future with our comprehensive financial
+            solution. Contact us for pricing details and see how we can help you
+            streamline your finances and reach your business goals.
+          </p>
+        </SectionHeader>
 
-      {/* content */}
-      <div className={styles.plans}>
-        {plansInfo.map((plan) => (
-          <PricingPlan
-            key={plan.title}
-            title={plan.title}
-            description={plan.description}
-            price={plan.price}
-            btnVariant={plan.btnVariant}
-            planActionText={plan.planActionText}
-            items={plan.items}
-            withBadge={plan.withBadge}
-          />
-        ))}
+        {/* content */}
+        <div className={styles.plans}>
+          {plansInfo.map((plan) => (
+            <PricingPlan
+              key={plan.title}
+              title={plan.title}
+              description={plan.description}
+              price={plan.price}
+              btnVariant={plan.btnVariant}
+              planActionText={plan.planActionText}
+              items={plan.items}
+              withBadge={plan.withBadge}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

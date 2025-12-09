@@ -21,6 +21,7 @@
   }
 
   .icon,
+  .icon > *,
   .text {
     @include mixins.setTextColor(
       variables.$dark-color-5,
