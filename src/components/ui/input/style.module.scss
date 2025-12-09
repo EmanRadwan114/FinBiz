@@ -43,7 +43,7 @@
     }
   }
 
-  button {
+  .btn {
     @include mixins.setBgColor(
       variables.$primary-bg-color,
       variables.$primary-bg-color
