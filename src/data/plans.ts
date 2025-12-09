@@ -1,13 +1,6 @@
-import type { TBtnVariant } from "../types/types";
+import type { IPricePlan } from "./interfaces";
 
-export const plansInfo: {
-  title: string;
-  description: string;
-  price: number;
-  btnVariant: TBtnVariant;
-  planActionText: string;
-  items: string[];
-}[] = [
+export const plansInfo: IPricePlan[] = [
   {
     title: "basic",
     description: "Get a professional website designed according to your needs.",
@@ -19,6 +12,7 @@ export const plansInfo: {
       "Webflow Development",
       "Limited Support",
     ],
+    withBadge: false,
   },
   {
     title: "pro",
@@ -34,6 +28,7 @@ export const plansInfo: {
       "Email support",
       "Email support",
     ],
+    withBadge: true,
   },
   {
     title: "enterprise",
@@ -51,5 +46,6 @@ export const plansInfo: {
       "Email support",
       "Email support",
     ],
+    withBadge: false,
   },
 ];

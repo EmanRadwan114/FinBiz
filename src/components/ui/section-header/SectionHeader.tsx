@@ -1,6 +1,6 @@
 import React, { type ReactNode } from "react";
 import styles from "./style.module.scss";
-import SubHeader from "../ui/sub-header/SubHeader";
+import SubHeader from "../sub-header/SubHeader";
 
 interface IProps {
   children: ReactNode;

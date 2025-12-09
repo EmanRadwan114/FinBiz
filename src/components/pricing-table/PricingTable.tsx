@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./style.module.scss";
-import SectionHeader from "../section-header/SectionHeader";
+import SectionHeader from "../ui/section-header/SectionHeader";
 import pricingImgLight from "@/assets/pricing.svg";
 import pricingImgDark from "@/assets/pricing-dark.svg";
 import { useTheme } from "next-themes";
@@ -40,6 +40,7 @@ const PricingTable: React.FC = () => {
             btnVariant={plan.btnVariant}
             planActionText={plan.planActionText}
             items={plan.items}
+            withBadge={plan.withBadge}
           />
         ))}
       </div>

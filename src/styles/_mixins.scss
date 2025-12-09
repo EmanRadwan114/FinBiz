@@ -60,3 +60,11 @@
     background-color: $darkThemeBgColor;
   }
 }
+//set border color
+@mixin setBorderColor($lightThemeBorderColor, $darkThemeBorderColor) {
+  border-color: $lightThemeBorderColor;
+
+  :global(html.dark) & {
+    border-color: $darkThemeBorderColor;
+  }
+}

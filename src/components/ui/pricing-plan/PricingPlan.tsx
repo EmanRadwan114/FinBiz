@@ -1,38 +1,43 @@
-import React, { type ReactNode } from "react";
+import React from "react";
 import styles from "./style.module.scss";
 import Button from "../button/Button";
-import type { TBtnVariant } from "../../../types/types";
+import { FiCheck } from "react-icons/fi";
+import type { IPricePlan } from "../../../data/interfaces";
+import { PiStarFourBold } from "react-icons/pi";
 
-interface IProps {
-  title: string;
-  description: string;
-  price: number | string;
-  btnVariant?: TBtnVariant;
-  planActionText?: string;
-  items: string[];
-}
-
-const PricingPlan: React.FC<IProps> = ({
+const PricingPlan: React.FC<IPricePlan> = ({
   title,
   description,
   price,
   btnVariant = "rounded",
   planActionText = "Get started",
   items,
+  withBadge,
 }) => {
   return (
     <div className={styles.card}>
-      <h3 className={styles.title}>{title}</h3>
-      <span className={styles.description}>{description}</span>
+      {withBadge && (
+        <div className={styles.badge}>
+          <PiStarFourBold />
+          <span>popular</span>
+        </div>
+      )}
+      <div>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+      </div>
       <span className={styles.price}>
-        {price}
+        ${price}
         <span className={styles["price-duration"]}>/month</span>
       </span>
 
+      <div className={styles.line}></div>
       {/* plan items */}
       <ul>
         {items.map((item) => (
-          <li>{item}</li>
+          <li>
+            <FiCheck /> <span>{item}</span>
+          </li>
         ))}
       </ul>
 

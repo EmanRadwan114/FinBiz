@@ -1,12 +1,141 @@
 @use "@/styles/variables";
+@use "@/styles/mixins";
 
 .card {
+  @include mixins.displayFlex(start, stretch, 48px, column);
+  @include mixins.setBgColor(variables.$light-color-2, variables.$dark-color-2);
+  @include mixins.setBorderColor(
+    variables.$gray-color-7,
+    variables.$dark-color-7
+  );
+
   border-radius: 24px;
   -webkit-border-radius: 24px;
   -moz-border-radius: 24px;
   -ms-border-radius: 24px;
   -o-border-radius: 24px;
   padding: 72px 40px 40px 40px;
-  background-color: variables.$light-color-2;
-  border: 1px solid variables.$gray-color-7;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  position: relative;
+
+  .badge {
+    @include mixins.displayFlex(center, stretch, 4px);
+    background-color: variables.$accent-dark-bg-color;
+    color: variables.$accent-color;
+
+    text-transform: capitalize;
+    position: absolute;
+    top: 24.5px;
+    right: 23.5px;
+    padding: 8px 12px;
+    border: 1px solid variables.$accent-light-bg-color;
+
+    span {
+      font-size: variables.$font-size-14;
+      font-weight: 500;
+      line-height: 16.8px;
+    }
+
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    -ms-border-radius: 32px;
+    -o-border-radius: 32px;
+  }
+
+  .title {
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$light-color-6
+    );
+
+    font-size: 32px;
+    line-height: 38.4px;
+    text-transform: capitalize;
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  &:nth-of-type(2) .title,
+  &:last-of-type .title {
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$primary-bg-color
+    );
+  }
+
+  .description {
+    @include mixins.setTextColor(
+      variables.$gray-color-1,
+      variables.$gray-color-5
+    );
+
+    line-height: 22.4px;
+    font-size: variables.$font-size-base;
+  }
+
+  .price {
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$base-color-light
+    );
+
+    display: inline-block;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 32px;
+    padding-block: 35px;
+
+    .price-duration {
+      @include mixins.setTextColor(
+        variables.$gray-color-3,
+        variables.$gray-color-8
+      );
+
+      font-size: variables.$font-size-base;
+    }
+  }
+
+  .line {
+    @include mixins.setBgColor(
+      variables.$light-color-1,
+      variables.$dark-color-7
+    );
+    height: 1px;
+    width: 100%;
+  }
+
+  ul {
+    @include mixins.displayFlex(start, stretch, 8px, column);
+    text-align: start;
+
+    li {
+      @include mixins.displayFlex(start, center);
+    }
+  }
+
+  button {
+    margin-top: auto;
+    padding-block: 20px;
+    font-weight: 500;
+  }
+
+  &:nth-of-type(2) > button {
+    @include mixins.setBgColor(
+      variables.$dark-color-5,
+      variables.$light-color-6
+    );
+
+    @include mixins.setTextColor(
+      variables.$base-color-light,
+      variables.$dark-color-1
+    );
+  }
+
+  &:last-of-type > button {
+    background-color: variables.$primary-bg-color;
+    color: variables.$dark-color-5;
+  }
 }
