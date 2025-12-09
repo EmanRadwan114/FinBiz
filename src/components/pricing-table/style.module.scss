@@ -6,24 +6,9 @@
   @include mixins.setBgColor(variables.$light-color-4, variables.$dark-color-5);
 
   padding-block: 120px;
-  text-align: center;
 
-  & > header {
+  & header {
     margin-bottom: 55px;
-
-    h2 {
-      @include mixins.setTextColor(
-        variables.$dark-color-5,
-        variables.$light-color-6
-      );
-    }
-
-    p {
-      @include mixins.setTextColor(
-        variables.$gray-color-1,
-        variables.$gray-color-5
-      );
-    }
   }
 
   .plans {

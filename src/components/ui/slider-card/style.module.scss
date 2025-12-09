@@ -1,0 +1,63 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.card {
+  @include mixins.setBgColor(
+    variables.$base-color-light,
+    variables.$dark-color-2
+  );
+
+  @include mixins.displayFlex(start, stretch, 0, column);
+
+  max-width: 660px;
+  margin-top: 86px;
+
+  padding: 40px;
+
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+
+  .review-content {
+    font-size: 26px;
+    line-height: 42px;
+    margin-bottom: 45px;
+    max-width: 90%;
+  }
+
+  .user-rate {
+    @include mixins.displayFlex(space-between, center, 10px);
+
+    margin-top: auto;
+
+    .rate-box {
+      @include mixins.displayFlex(start, center, 10px);
+
+      .user-img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .user {
+        .username {
+          @include mixins.setTextColor(
+            variables.$dark-color-5,
+            variables.$base-color-light
+          );
+
+          font-size: 26px;
+          line-height: 100%;
+          margin-bottom: 6px;
+          letter-spacing: -0.5px;
+          font-weight: 400;
+        }
+
+        .stars {
+          @include mixins.displayFlex(start, stretch, 2.7px);
+        }
+      }
+    }
+  }
+}

@@ -9,14 +9,25 @@
 
   .content {
     max-width: 65%;
+    text-align: center;
 
     & :first-child {
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$light-color-6
+      );
+
       font-size: 47.5px;
       font-weight: 700;
       line-height: 48px;
     }
 
     & :last-child {
+      @include mixins.setTextColor(
+        variables.$gray-color-1,
+        variables.$gray-color-5
+      );
+
       font-size: variables.$font-size-18;
       line-height: 30px;
       padding-block: 10px;

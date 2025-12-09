@@ -1,0 +1,54 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.reviews-sec {
+  @include mixins.setBgColor(variables.$light-color-1, variables.$dark-color-1);
+
+  padding-block: 146px;
+
+  .sub-icon {
+    margin-top: 4px;
+  }
+
+  .slider-container {
+    margin-inline-end: 0;
+    max-width: 89.9%;
+
+    .swiper-slide {
+      height: auto;
+    }
+  }
+
+  .btns {
+    margin-top: 86px;
+    @include mixins.displayFlex(center, center, 14px);
+
+    & > button {
+      @include mixins.displayFlex();
+
+      width: 60px;
+      height: 60px;
+      padding: 0 !important;
+    }
+
+    & > button:first-of-type {
+      @include mixins.setBgColor(
+        variables.$base-color-light,
+        variables.$btn-bg-color
+      );
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$base-color-light
+      );
+    }
+    & > button:last-of-type {
+      background-color: variables.$primary-bg-color;
+      color: variables.$base-color-dark;
+    }
+  }
+}
+
+:global(.swiper-slide) {
+  height: auto !important;
+  display: flex !important;
+}
