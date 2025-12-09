@@ -23,6 +23,7 @@ const SliderCard: React.FC<IProps> = ({ reviewContent, userImg, username }) => {
             alt="user profile image"
             className={styles["user-img"]}
           />
+
           <div className={styles.user}>
             <h3 className={styles.username}>{username}</h3>
             <span className={styles.stars}>

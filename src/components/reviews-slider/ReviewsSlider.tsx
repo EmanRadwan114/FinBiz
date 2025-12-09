@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./style.module.scss";
 import SectionHeader from "../ui/section-header/SectionHeader";
 import { FiMessageSquare } from "react-icons/fi";
@@ -8,10 +8,35 @@ import Button from "../ui/button/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.css";
 import type { Swiper as swiperType } from "swiper/types";
+import { Autoplay } from "swiper/modules";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { useQuery } from "@tanstack/react-query";
+import { getAllPosts } from "../../services/posts";
+import Spinner from "../ui/spinner/Spinner";
 
 const ReviewsSlider: React.FC = () => {
   const swiperRef = useRef<null | swiperType>(null);
+
+  //———————————————————————————————— fetch posts ————————————————————————————————
+  const {
+    data: posts,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ["posts"],
+    queryFn: () => getAllPosts(),
+  });
+
+  useEffect(() => {
+    refetch();
+  }, []);
+
+  if (isLoading) return <Spinner />;
+
+  if (error) return <p>Error in fetching posts</p>;
+
+  console.log(posts);
 
   return (
     <section className={styles["reviews-sec"]}>
@@ -34,39 +59,26 @@ const ReviewsSlider: React.FC = () => {
       {/* slider */}
       <div className={`container ${styles["slider-container"]}`}>
         <Swiper
+          modules={[Autoplay]}
           spaceBetween={30}
           slidesPerView={2.55}
-          onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          loop={true}
+          autoplay={{
+            delay: 1500,
+            disableOnInteraction: false,
+          }}
+          speed={500}
+          className={styles["my-swiper"]}
         >
-          <SwiperSlide>
-            <SliderCard
-              reviewContent="I really like the system at this management,
-i love recommending this software to you
-guys"
-              userImg={img}
-              username="Alfredo Lubin"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SliderCard
-              reviewContent="I really like the system at this management,
-i love recommending this software to you
-guys"
-              userImg={img}
-              username="Alfredo Lubin"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SliderCard
-              reviewContent="I really like the system at this management,
-i love recommending this software to you
-guys"
-              userImg={img}
-              username="Alfredo Lubin"
-            />
-          </SwiperSlide>
+          {posts?.map((post) => (
+            <SwiperSlide>
+              <SliderCard
+                reviewContent={post.body.slice(0, 150)}
+                userImg={img}
+                username="Alfredo Lubin"
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
       <div className={styles.btns}>
