@@ -1,0 +1,116 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.hero-sec {
+  padding-block-start: 92px;
+  padding-block-end: 62px;
+  text-align: center;
+
+  .sub-heading {
+    @include mixins.setBgColor(
+      variables.$base-color-light,
+      variables.$primary-color-dark
+    );
+
+    @include mixins.displayFlex(start, center);
+
+    border-color: variables.$primary-border-color !important;
+    padding-inline: 4px 8px !important;
+    padding-block: 4px !important;
+    margin: 0 auto;
+    margin-bottom: 15px;
+
+    .new {
+      color: variables.$base-color-light;
+      background-color: variables.$primary-bg-color;
+      padding: 4px 8px;
+      border-radius: 64px;
+      -webkit-border-radius: 64px;
+      -moz-border-radius: 64px;
+      -ms-border-radius: 64px;
+      -o-border-radius: 64px;
+
+      &,
+      & + .title {
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: variables.$font-size-14;
+        line-height: 16.8px;
+      }
+    }
+
+    .title {
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$primary-bg-color
+      );
+    }
+
+    .title + * {
+      color: variables.$primary-bg-color;
+    }
+  }
+
+  .content {
+    max-width: 52%;
+    margin: 0 auto;
+
+    .site-h1 {
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$base-color-light
+      );
+
+      font-weight: 700;
+      font-size: 72px;
+      line-height: 84px;
+      margin-bottom: 15px;
+    }
+
+    .hero-desc {
+      @include mixins.setTextColor(
+        variables.$gray-color-4,
+        variables.$gray-color-5
+      );
+
+      font-size: 22px;
+      line-height: 36px;
+      margin-bottom: 56px;
+    }
+
+    .input {
+      max-width: 75%;
+      margin: 0 auto;
+      margin-bottom: 62px;
+    }
+
+    .reviews {
+      @include mixins.displayFlex(center, center, 8px, column);
+
+      .users-imgs {
+        // @include mixins.displayFlex(center, center, -4px);
+
+        img {
+          width: 32px;
+          height: 32px;
+
+          &:nth-child(2),
+          &:nth-child(3),
+          &:last-child {
+            margin-left: -12px;
+          }
+        }
+      }
+
+      .reviews-count {
+        @include mixins.setTextColor(
+          variables.$gray-color-4,
+          variables.$gray-color-5
+        );
+        font-weight: 700;
+        line-height: 16px;
+        font-size: variables.$font-size-14;
+      }
+    }
+  }
+}

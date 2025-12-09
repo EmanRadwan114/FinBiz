@@ -8,10 +8,11 @@
     variables.$dark-color-7
   );
 
+  //default style
   width: 100%;
 
-  &,
-  & > * {
+  &.default-input,
+  &.default-input > * {
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -19,24 +20,92 @@
     -o-border-radius: 8px;
   }
 
-  .input {
-    background-color: transparent;
-    padding-inline: 20px;
-    padding-block: 15px;
-    border: none;
-    line-height: 22px;
+  &.default-input {
+    .btn {
+      @include mixins.setBgColor(
+        variables.$primary-bg-color,
+        variables.$primary-bg-color
+      );
 
-    &,
-    &::placeholder {
       @include mixins.setTextColor(
+        variables.$light-color-5,
+        variables.$light-color-5
+      );
+
+      line-height: 28px;
+      border-start-start-radius: 0 !important;
+      border-end-start-radius: 0 !important;
+      border-radius: 8px;
+      font-size: variables.$font-size-base;
+    }
+
+    .input {
+      padding-inline: 20px;
+      padding-block: 15px;
+      line-height: 22px;
+
+      &,
+      &::placeholder {
+        @include mixins.setTextColor(
+          variables.$dark-color-5,
+          variables.$dark-color-5
+        );
+
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  //rounded style
+  &.rounded-input,
+  & > .btn {
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+  }
+
+  &.rounded-input {
+    padding: 6px 7px;
+
+    .btn {
+      @include mixins.setBgColor(
         variables.$dark-color-5,
+        variables.$light-color-1
+      );
+
+      @include mixins.setTextColor(
+        variables.$base-color-light,
         variables.$dark-color-5
       );
 
-      font-size: 16px;
-      line-height: 22px;
-      font-family: variables.$font-family-default;
+      border-start-start-radius: 100px;
+      border-end-start-radius: 100px;
+      padding: 15px 30px;
     }
+
+    .input {
+      width: 70%;
+      padding-inline-start: 33px;
+      padding-block: 15px;
+      font-size: variables.$font-size-18;
+      line-height: 30px;
+
+      &,
+      &::placeholder {
+        color: variables.$placeholder-color !important;
+      }
+    }
+  }
+
+  //common styles
+  .input {
+    border: none;
+    background-color: transparent;
+
+    font-family: variables.$font-family-default;
 
     &:focus-within {
       outline: none;
@@ -44,20 +113,6 @@
   }
 
   .btn {
-    @include mixins.setBgColor(
-      variables.$primary-bg-color,
-      variables.$primary-bg-color
-    );
-
-    @include mixins.setTextColor(
-      variables.$light-color-5,
-      variables.$light-color-5
-    );
-
-    font-size: variables.$font-size-base;
     font-weight: 700;
-    line-height: 28px;
-    border-start-start-radius: 0;
-    border-end-start-radius: 0;
   }
 }

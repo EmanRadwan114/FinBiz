@@ -34,8 +34,8 @@ const PricingPlan: React.FC<IPricePlan> = ({
       <div className={styles.line}></div>
       {/* plan items */}
       <ul>
-        {items.map((item) => (
-          <li>
+        {items.map((item, index) => (
+          <li key={index}>
             <FiCheck /> <span>{item}</span>
           </li>
         ))}

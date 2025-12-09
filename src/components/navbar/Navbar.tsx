@@ -22,55 +22,58 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <nav className={styles.navbar}>
-        <div className={styles.container}>
-          {/* logo */}
-          <Link to="/">
-            <div className={styles.logo}>
-              <img src={logo} alt="finbizz brand logo" />
-              <p>FinBiz</p>
-            </div>
-          </Link>
+    <>
+      <header className={styles.header}>
+        <nav className={styles.navbar}>
+          <div className={styles.container}>
+            {/* logo */}
+            <Link to="/">
+              <div className={styles.logo}>
+                <img src={logo} alt="finbizz brand logo" />
+                <p>FinBiz</p>
+              </div>
+            </Link>
 
-          {/* navlinks */}
-          <ul className={styles["nav-links"]}>
-            {navLinks.map((link) => (
-              <li key={link}>
-                <Link to={link}>
-                  {link}
-                  {link === "pages" && <FaChevronDown size={12} />}
-                </Link>
-              </li>
-            ))}
-          </ul>
+            {/* navlinks */}
+            <ul className={styles["nav-links"]}>
+              {navLinks.map((link) => (
+                <li key={link}>
+                  <Link to={link}>
+                    {link}
+                    {link === "pages" && <FaChevronDown size={12} />}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          {/* actions */}
-          <div className={styles["nav-actions"]}>
-            {/* language switch */}
-            <div className={styles.lang}>
-              <Button variant="none" onClick={changeLang}>
-                {lang}
+            {/* actions */}
+            <div className={styles["nav-actions"]}>
+              {/* language switch */}
+              <div className={styles.lang}>
+                <Button variant="none" onClick={changeLang}>
+                  {lang}
+                </Button>
+              </div>
+              {/* theme change */}
+              {resolvedTheme === "dark" ? (
+                <PiSunThin size={40} strokeWidth={6} onClick={changeTheme} />
+              ) : (
+                <PiMoonThin size={40} strokeWidth={2} onClick={changeTheme} />
+              )}
+
+              <Button
+                variant="outlined"
+                paddingHorizontal={24}
+                paddingVertical={16}
+              >
+                Get started
               </Button>
             </div>
-            {/* theme change */}
-            {resolvedTheme === "dark" ? (
-              <PiSunThin size={40} strokeWidth={6} onClick={changeTheme} />
-            ) : (
-              <PiMoonThin size={40} strokeWidth={2} onClick={changeTheme} />
-            )}
-
-            <Button
-              variant="outlined"
-              paddingHorizontal={24}
-              paddingVertical={16}
-            >
-              Get started
-            </Button>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
+      <div className={styles.line}></div>
+    </>
   );
 };
 
