@@ -3,56 +3,39 @@
 
 .box {
   @include mixins.displayFlex(center, center, 4px);
+  @include mixins.setBgColor("transparent", variables.$primary-color-dark);
+
   position: relative;
   padding: 8px 12px;
-  width: fit-content;
+  margin: 0 auto;
   border: 1px solid variables.$primary-border-color;
   border-bottom: none;
+  box-shadow: 0 0.25px 0 0.3px variables.$primary-border-color;
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 0 0.35px variables.$primary-border-color;
-  }
+  .icon {
+    font-size: 0;
 
-  &,
-  &::after {
-    border-radius: 32px;
-    -webkit-border-radius: 32px;
-    -moz-border-radius: 32px;
-    -ms-border-radius: 32px;
-    -o-border-radius: 32px;
-  }
-
-  .icon > * {
-    max-width: 13px;
-    max-height: 13px;
+    & > * {
+      margin-top: 0.5px;
+    }
   }
 
   .icon,
   .text {
-    color: variables.$dark-color-5;
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$primary-bg-color
+    );
   }
 
   .text {
     font-size: variables.$font-size-14;
     font-weight: 500 !important;
-    line-height: 16.8px;
     text-transform: capitalize;
   }
-}
-
-//———————————————————————————————— dark theme ————————————————————————————————
-:global(html.dark) {
-  .box {
-    background-color: variables.$primary-color-dark;
-    .icon,
-    .text {
-      color: variables.$primary-bg-color;
-    }
-  }
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  -ms-border-radius: 32px;
+  -o-border-radius: 32px;
 }

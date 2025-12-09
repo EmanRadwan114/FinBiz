@@ -1,6 +1,13 @@
 @use "@/styles/variables";
+@use "@/styles/mixins";
 
+//———————————————————————————————— custom style ————————————————————————————————
 .pricing-section {
+  @include mixins.setBgColor(variables.$light-color-4, variables.$dark-color-5);
   padding-block: 120px;
-  background-color: variables.$light-color-4;
+  text-align: center;
+
+  & > header {
+    margin-bottom: 55px;
+  }
 }

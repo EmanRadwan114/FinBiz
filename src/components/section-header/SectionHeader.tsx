@@ -10,7 +10,7 @@ interface IProps {
 
 const SectionHeader: React.FC<IProps> = ({ children, icon, subTitle }) => {
   return (
-    <header>
+    <header className={styles.header}>
       <SubHeader icon={icon} text={subTitle} />
       <div className={styles.content}>{children}</div>
     </header>

@@ -1,8 +1,9 @@
 import React, { type ButtonHTMLAttributes } from "react";
 import styles from "./style.module.scss";
+import type { TBtnVariant } from "../../../types/types";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "rounded" | "outlined" | "none";
+  variant?: TBtnVariant;
   paddingVertical?: number | string;
   paddingHorizontal?: number | string;
   color?: string;

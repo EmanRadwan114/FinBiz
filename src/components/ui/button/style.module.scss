@@ -1,14 +1,21 @@
 @use "@/styles/variables";
+@use "@/styles/mixins";
 
 .btn {
-  --btn-bg: variables.$dark-color-5;
-  --btn-color: variables.$base-color-light;
   font-weight: 500;
   font-size: variables.$font-size-base;
 
   &.default-btn {
-    background-color: var(--btn-bg);
-    color: var(--btn-color);
+    @include mixins.setBgColor(
+      variables.$dark-color-5,
+      variables.$light-color-1
+    );
+
+    @include mixins.setTextColor(
+      variables.$base-color-light,
+      variables.$dark-color-5
+    );
+
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -25,8 +32,16 @@
   }
 
   &.outlined-btn {
+    @include mixins.setBgColor(
+      variables.$light-color-4,
+      variables.$dark-color-6
+    );
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$light-color-6
+    );
+
     position: relative;
-    background-color: variables.$light-color-4;
     border-color: variables.$dark-color-8;
     border-width: 1px 1px 0 1px;
     border-style: solid;
@@ -61,12 +76,7 @@
 
 :global(html.dark) {
   .btn {
-    --btn-bg: variables.$light-color-1 !important;
-    --btn-color: variables.$dark-color-5 !important;
-
     &.outlined-btn {
-      color: variables.$light-color-6;
-      background-color: variables.$dark-color-6;
       border-color: variables.$dark-color-8;
 
       &::after {

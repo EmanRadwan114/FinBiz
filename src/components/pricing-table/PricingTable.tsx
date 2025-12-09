@@ -4,10 +4,10 @@ import SectionHeader from "../section-header/SectionHeader";
 import pricingImgLight from "@/assets/pricing.svg";
 import pricingImgDark from "@/assets/pricing-dark.svg";
 import { useTheme } from "next-themes";
+import PricingPlan from "../ui/pricing-plan/PricingPlan";
+import { plansInfo } from "../../data/plans";
 
-interface IProps {}
-
-const PricingTable: React.FC<IProps> = ({}) => {
+const PricingTable: React.FC = () => {
   const { resolvedTheme } = useTheme();
 
   return (
@@ -31,6 +31,18 @@ const PricingTable: React.FC<IProps> = ({}) => {
       </SectionHeader>
 
       {/* content */}
+      <div className={styles.plans}>
+        {plansInfo.map((plan) => (
+          <PricingPlan
+            title={plan.title}
+            description={plan.description}
+            price={plan.price}
+            btnVariant={plan.btnVariant}
+            planActionText={plan.planActionText}
+            items={plan.items}
+          />
+        ))}
+      </div>
     </section>
   );
 };
