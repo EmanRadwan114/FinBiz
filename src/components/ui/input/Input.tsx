@@ -8,6 +8,7 @@ interface IProps {
   submitText: string;
   inputWidth: string;
   btnWidth: string;
+  variant?: "default" | "rounded";
 }
 
 const Input: React.FC<IProps> = ({
@@ -16,9 +17,14 @@ const Input: React.FC<IProps> = ({
   submitText,
   inputWidth,
   btnWidth,
+  variant = "default",
 }) => {
   return (
-    <div className={styles["input-group"]}>
+    <div
+      className={`${variant && styles[`${variant}-input`]} ${
+        styles["input-group"]
+      }`}
+    >
       <input
         type={type}
         className={styles.input}

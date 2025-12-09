@@ -24,7 +24,7 @@ const PricingTable: React.FC = () => {
       >
         <h2>Find the right plan</h2>
         <p>
-          Invest in your company's future with our comprehensive financial
+          "Invest in your company's future with our comprehensive financial
           solution. Contact us for pricing details and see how we can help you
           streamline your finances and reach your business goals.
         </p>
@@ -34,6 +34,7 @@ const PricingTable: React.FC = () => {
       <div className={styles.plans}>
         {plansInfo.map((plan) => (
           <PricingPlan
+            key={plan.title}
             title={plan.title}
             description={plan.description}
             price={plan.price}

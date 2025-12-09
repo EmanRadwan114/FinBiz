@@ -1,7 +1,17 @@
 @use "@/styles/mixins";
 @use "@/styles/variables";
 
+.line {
+  @include mixins.setBgColor(variables.$gray-color-8, variables.$dark-color-2);
+
+  height: 0.8px;
+  width: 100%;
+  margin-top: 16px;
+}
+
 .header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   @include mixins.setBgColor(
     variables.$base-color-light,
     variables.$dark-color-1
