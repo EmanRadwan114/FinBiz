@@ -42,3 +42,29 @@
   flex-direction: $direction;
   gap: $gap;
 }
+
+//set text color
+@mixin setTextColor($lightThemeColor, $darkThemeColor) {
+  color: $lightThemeColor;
+
+  :global(html.dark) & {
+    color: $darkThemeColor;
+  }
+}
+
+//set background color
+@mixin setBgColor($lightThemeBgColor, $darkThemeBgColor) {
+  background-color: $lightThemeBgColor;
+
+  :global(html.dark) & {
+    background-color: $darkThemeBgColor;
+  }
+}
+//set border color
+@mixin setBorderColor($lightThemeBorderColor, $darkThemeBorderColor) {
+  border-color: $lightThemeBorderColor;
+
+  :global(html.dark) & {
+    border-color: $darkThemeBorderColor;
+  }
+}

@@ -2,12 +2,18 @@
 @use "@/styles/variables";
 
 .header {
-  background-color: variables.$base-color-light;
+  @include mixins.setBgColor(
+    variables.$base-color-light,
+    variables.$dark-color-1
+  );
   padding: 20px 0;
 }
 
 .navbar {
-  color: variables.$dark-color-5;
+  @include mixins.setTextColor(
+    variables.$dark-color-5,
+    variables.$dark-color-5
+  );
 
   .container {
     @include mixins.displayFlex();
@@ -32,6 +38,8 @@
     height: 18px;
   }
   p {
+    @include mixins.setTextColor("inherit", variables.$light-color-6);
+
     font-size: variables.$font-size-20;
     font-family: variables.$font-family-inter;
     font-weight: 600;
@@ -42,6 +50,7 @@
   @include mixins.displayFlex(start);
 
   li {
+    @include mixins.setTextColor("inherit", variables.$gray-color-5);
     padding: 8px;
 
     & > a {
@@ -57,7 +66,10 @@
   margin-inline-start: auto;
 
   & > * {
-    color: variables.$dark-color-5;
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$light-color-6
+    );
   }
 
   & > *:not(button) {
@@ -66,26 +78,12 @@
   }
 
   .lang > button {
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$light-color-6
+    );
+
     font-size: variables.$font-size-18;
     padding-inline: 1px;
-  }
-}
-
-//———————————————————————————————— dark mode ————————————————————————————————
-:global(html.dark) {
-  .header {
-    background-color: variables.$dark-color-1;
-  }
-
-  .logo > p {
-    color: variables.$light-color-6;
-  }
-
-  .nav-links > li {
-    color: variables.$gray-color-5;
-  }
-
-  .nav-actions > * {
-    color: variables.$light-color-6;
   }
 }

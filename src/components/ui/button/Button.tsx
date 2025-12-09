@@ -1,13 +1,15 @@
 import React, { type ButtonHTMLAttributes } from "react";
 import styles from "./style.module.scss";
+import type { TBtnVariant } from "../../../types/types";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "rounded" | "outlined" | "none";
+  variant?: TBtnVariant;
   paddingVertical?: number | string;
   paddingHorizontal?: number | string;
   color?: string;
   bgColor?: string;
   borderColor?: string;
+  className?: string;
 }
 
 const Button: React.FC<IProps> = ({
@@ -17,12 +19,15 @@ const Button: React.FC<IProps> = ({
   paddingVertical = 15,
   color,
   bgColor,
-  borderColor = "black",
+  borderColor,
+  className,
   ...rest
 }) => {
   return (
     <button
-      className={`${styles.btn} ${styles[`${variant}-btn`]}`}
+      className={`${styles.btn} ${styles[`${variant}-btn`]} ${
+        className && className
+      }`}
       style={{
         color,
         backgroundColor: bgColor,

@@ -1,0 +1,41 @@
+@use "@/styles/mixins";
+@use "@/styles/variables";
+
+.box {
+  @include mixins.displayFlex(center, center, 4px);
+  @include mixins.setBgColor("transparent", variables.$primary-color-dark);
+
+  position: relative;
+  padding: 8px 12px;
+  margin: 0 auto;
+  border: 1px solid variables.$primary-border-color;
+  border-bottom: none;
+  box-shadow: 0 0.25px 0 0.3px variables.$primary-border-color;
+
+  .icon {
+    font-size: 0;
+
+    & > * {
+      margin-top: 0.5px;
+    }
+  }
+
+  .icon,
+  .text {
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$primary-bg-color
+    );
+  }
+
+  .text {
+    font-size: variables.$font-size-14;
+    font-weight: 500 !important;
+    text-transform: capitalize;
+  }
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  -ms-border-radius: 32px;
+  -o-border-radius: 32px;
+}

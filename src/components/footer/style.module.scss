@@ -1,9 +1,11 @@
 @use "@/styles/variables";
 @use "@/styles/mixins";
 
+//———————————————————————————————— custm styles ————————————————————————————————
 footer {
+  @include mixins.setBgColor(variables.$gray-color-8, variables.$dark-color-1);
+
   margin-top: auto;
-  background-color: variables.$gray-color-8;
   padding-block-start: 98px;
 
   .container {
@@ -16,7 +18,11 @@ footer {
     padding-block: 47px;
 
     h2 {
-      color: variables.$dark-color-5;
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$light-color-5
+      );
+
       margin-bottom: 32px;
       font-weight: 700;
       font-size: variables.$font-size-20;
@@ -24,7 +30,12 @@ footer {
 
     ul {
       @include mixins.displayFlex(start, stretch, 24px, column);
-      color: variables.$gray-color-3;
+
+      @include mixins.setTextColor(
+        variables.$gray-color-3,
+        variables.$gray-color-6
+      );
+
       font-size: variables.$font-size-base;
       line-height: 100%;
     }
@@ -40,15 +51,23 @@ footer {
         height: 24px;
       }
       p {
+        @include mixins.setTextColor(
+          variables.$dark-color-5,
+          variables.$light-color-6
+        );
+
         font-size: variables.$font-size-24;
         font-weight: 600;
         font-family: variables.$font-family-inter;
-        color: variables.$dark-color-5;
       }
     }
 
     & > p {
-      color: variables.$gray-color-3;
+      @include mixins.setTextColor(
+        variables.$gray-color-3,
+        variables.$gray-color-6
+      );
+
       font-size: variables.$font-size-20;
       margin-bottom: 16px;
       line-height: 160%;
@@ -60,12 +79,20 @@ footer {
       .icon {
         @include mixins.displayFlex(center, center);
 
+        @include mixins.setTextColor(
+          variables.$dark-color-5,
+          variables.$base-color-light
+        );
+
+        @include mixins.setBgColor(
+          variables.$light-color-1,
+          variables.$gray-color-2
+        );
+
         cursor: pointer;
-        color: variables.$dark-color-5;
         padding: 2px;
         width: 36px;
         height: 36px;
-        background-color: variables.$light-color-1;
         border-radius: 50%;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
@@ -73,8 +100,15 @@ footer {
         -o-border-radius: 50%;
 
         &:nth-of-type(2) {
-          background-color: variables.$blue-color-100;
-          color: variables.$base-color-light;
+          @include mixins.setTextColor(
+            variables.$base-color-light,
+            variables.$base-color-light
+          );
+
+          @include mixins.setBgColor(
+            variables.$blue-color-100,
+            variables.$blue-color-100
+          );
         }
       }
     }
@@ -85,7 +119,11 @@ footer {
   }
 
   .copyright {
-    color: variables.$gray-color-3;
+    @include mixins.setTextColor(
+      variables.$gray-color-3,
+      variables.$light-color-5
+    );
+
     text-align: center;
     font-size: variables.$font-size-14;
     line-height: 20px;
@@ -97,31 +135,6 @@ footer {
 //———————————————————————————————— dark theme ————————————————————————————————
 :global(html.dark) {
   footer {
-    background-color: variables.$dark-color-1;
-
-    h2 {
-      color: variables.$light-color-5;
-    }
-
-    ul {
-      color: variables.$gray-color-6;
-    }
-
-    .first-col {
-      p {
-        color: variables.$gray-color-6;
-      }
-
-      .logo > p {
-        color: variables.$light-color-6;
-      }
-
-      .social-icons > .icon:not(:nth-of-type(2)) {
-        background-color: variables.$gray-color-2;
-        color: variables.$base-color-light;
-      }
-    }
-
     .fourth-col input[type="email"] {
       &,
       &::placeholder {
@@ -130,8 +143,7 @@ footer {
     }
 
     .copyright {
-      border-color: variables.$gray-color-1;
-      color: variables.$light-color-5;
+      border-top: 1px solid variables.$gray-color-1;
     }
   }
 }

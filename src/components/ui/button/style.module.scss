@@ -1,14 +1,21 @@
 @use "@/styles/variables";
+@use "@/styles/mixins";
 
 .btn {
-  --btn-bg: variables.$dark-color-5;
-  --btn-color: variables.$base-color-light;
   font-weight: 500;
   font-size: variables.$font-size-base;
 
   &.default-btn {
-    background-color: var(--btn-bg);
-    color: var(--btn-color);
+    @include mixins.setBgColor(
+      variables.$dark-color-5,
+      variables.$light-color-1
+    );
+
+    @include mixins.setTextColor(
+      variables.$base-color-light,
+      variables.$dark-color-5
+    );
+
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -25,16 +32,41 @@
   }
 
   &.outlined-btn {
-    background-color: variables.$light-color-4;
-    border-color: variables.$dark-color-8 !important;
+    @include mixins.setBgColor(
+      variables.$light-color-4,
+      variables.$dark-color-6
+    );
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$light-color-6
+    );
+
+    position: relative;
+    border-color: variables.$dark-color-8;
     border-width: 1px 1px 0 1px;
     border-style: solid;
-    border-radius: 64px;
-    -webkit-border-radius: 64px;
-    -moz-border-radius: 64px;
-    -ms-border-radius: 64px;
-    -o-border-radius: 64px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -1px;
+      right: -1px;
+      bottom: 0;
+      top: 1px;
+      border: none;
+      border-bottom: 1px solid variables.$light-color-4;
+    }
+
+    &,
+    &::after {
+      border-radius: 64px;
+      -webkit-border-radius: 64px;
+      -moz-border-radius: 64px;
+      -ms-border-radius: 64px;
+      -o-border-radius: 64px;
+    }
   }
+
   &.none-btn {
     background-color: transparent;
     padding-inline: 0 !important;
@@ -44,13 +76,12 @@
 
 :global(html.dark) {
   .btn {
-    --btn-bg: variables.$light-color-1 !important;
-    --btn-color: variables.$dark-color-5 !important;
-
     &.outlined-btn {
-      color: variables.$light-color-6;
-      background-color: variables.$dark-color-6;
       border-color: variables.$dark-color-8;
+
+      &::after {
+        border-bottom: 1px solid variables.$dark-color-1 !important;
+      }
     }
   }
 }
