@@ -1,13 +1,15 @@
 import React from "react";
-import UpgradeSection from "../components/upgrade/UpgradeSection";
-import PricingTable from "../components/pricing-table/PricingTable";
-import HeroSection from "../components/hero-section/HeroSection";
-import ReviewsSlider from "../components/reviews-slider/ReviewsSlider";
+import UpgradeSection from "../sections/upgrade/UpgradeSection";
+import PricingTable from "../sections/pricing-table/PricingTable";
+import HeroSection from "../sections/hero-section/HeroSection";
+import ReviewsSlider from "../sections/reviews-slider/ReviewsSlider";
+import StatsSection from "../sections/stats-section/StatsSection";
 
 const Home: React.FC = () => {
   return (
     <>
       <HeroSection />
+      <StatsSection />
       <ReviewsSlider />
       <PricingTable />
       <UpgradeSection />

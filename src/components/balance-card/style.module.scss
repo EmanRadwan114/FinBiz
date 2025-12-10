@@ -1,0 +1,51 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.box {
+  @include mixins.displayFlex(start, stretch, 26px, column);
+
+  .card-item {
+    @include mixins.displayFlex(start, stretch, 10px, column);
+
+    .header {
+      @include mixins.displayFlex(space-between, start);
+    }
+
+    .item-title {
+      @include mixins.setTextColor(
+        variables.$gray-color-3,
+        variables.$light-color-3
+      );
+      font-size: variables.$font-size-18;
+      font-weight: 400 !important;
+    }
+
+    .item-price {
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 72px;
+    }
+
+    .item-price,
+    .percentage {
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$light-color-3
+      );
+    }
+
+    &:nth-of-type(2) {
+      @include mixins.setBorderColor(
+        variables.$gray-color-8,
+        variables.$dark-color-7
+      );
+      padding-block: 20px;
+      border-style: solid;
+      border-width: 1px 0 1px 0;
+    }
+
+    .item-action {
+      width: 100%;
+    }
+  }
+}

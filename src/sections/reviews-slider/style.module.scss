@@ -3,8 +3,7 @@
 
 .reviews-sec {
   @include mixins.setBgColor(variables.$light-color-1, variables.$dark-color-1);
-
-  padding-block: 146px;
+  padding-block-end: 146px;
 
   .sub-icon {
     margin-top: 4px;

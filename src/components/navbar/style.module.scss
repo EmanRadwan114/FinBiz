@@ -29,7 +29,7 @@
     @include mixins.displayFlex();
     margin: 0 auto;
 
-    @include mixins.minScreen(2xl) {
+    @include mixins.minScreen(lg) {
       max-width: 1400px;
     }
 

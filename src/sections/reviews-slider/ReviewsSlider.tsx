@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./style.module.scss";
-import SectionHeader from "../ui/section-header/SectionHeader";
+import SectionHeader from "../../components/ui/section-header/SectionHeader";
 import { FiMessageSquare } from "react-icons/fi";
-import SliderCard from "../ui/slider-card/SliderCard";
+import SliderCard from "../../components/ui/slider-card/SliderCard";
 import img from "@/assets/person1.svg";
-import Button from "../ui/button/Button";
+import Button from "../../components/ui/button/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.css";
 import type { Swiper as swiperType } from "swiper/types";
@@ -12,7 +12,7 @@ import { Autoplay } from "swiper/modules";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { useQuery } from "@tanstack/react-query";
 import { getAllPosts } from "../../services/posts";
-import Spinner from "../ui/spinner/Spinner";
+import Spinner from "../../components/ui/spinner/Spinner";
 
 const ReviewsSlider: React.FC = () => {
   const swiperRef = useRef<null | swiperType>(null);

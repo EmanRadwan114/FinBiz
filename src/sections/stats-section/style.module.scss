@@ -1,0 +1,91 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.stats-sec {
+  position: relative;
+  padding-block-end: 48px;
+  background: linear-gradient(
+    rgba(variables.$light-color-4, 1) 62%,
+    rgba(variables.$light-color-1, 0.12) 62%
+  );
+
+  .sec-container {
+    @include mixins.minScreen(lg);
+    max-width: 80%;
+  }
+  .stats-card {
+    @include mixins.setBgColor(
+      variables.$light-color-1,
+      variables.$dark-color-2
+    );
+    box-shadow: 2px 10px 81px -8px rgba($color: #000000, $alpha: 0.14);
+    padding: 38px 30px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+
+    .profit-cards {
+      @include mixins.displayGrid(15, 25px, 20px);
+
+      .profit-card {
+        grid-column: span 5;
+
+        &:first-of-type {
+          & span {
+            color: variables.$stats-color-lime;
+          }
+        }
+        &:nth-of-type(2) {
+          & span {
+            color: variables.$stats-color-red;
+          }
+        }
+        &:nth-of-type(3) {
+          & span {
+            color: variables.$stats-color-blue;
+          }
+        }
+      }
+
+      .balance {
+        grid-column: span 3;
+      }
+      .chart {
+        grid-column: span 9;
+      }
+      .employee {
+        grid-column: span 3;
+      }
+    }
+  }
+}
+
+//———————————————————————————————— dark theme ————————————————————————————————
+:global(html.dark) {
+  .stats-sec {
+    background: linear-gradient(
+      rgba(variables.$dark-color-5, 1) 62%,
+      rgba(variables.$dark-color-1, 0.12) 62%
+    );
+  }
+  .gradient {
+    background: radial-gradient(
+      circle at 50% 33%,
+      rgba(variables.$primary-bg-color, 0.5) 0%,
+      variables.$dark-color-1 30%
+    );
+  }
+}
+
+//———————————————————————————————— gradient ————————————————————————————————
+.radial-gradient {
+  .gradient {
+    background: radial-gradient(
+      circle at 50% 35%,
+      rgba(variables.$primary-bg-color, 0.5) 0%,
+      variables.$light-color-1 25%
+    );
+  }
+}

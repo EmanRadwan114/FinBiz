@@ -1,0 +1,58 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.employee-info {
+  @include mixins.displayFlex(space-between, start, 8px, column);
+
+  padding-block-start: 14px;
+  padding-inline-start: 2px;
+  height: 100%;
+
+  .employee {
+    @include mixins.displayFlex(space-between, start, 23px, column);
+
+    width: 100%;
+
+    .title {
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$light-color-3
+      );
+
+      font-size: variables.$font-size-18;
+      font-weight: 400;
+      text-transform: capitalize;
+    }
+
+    .placeholder {
+      @include mixins.displayFlex(space-between, start, 14px, column);
+
+      width: 100%;
+
+      & > * {
+        height: 14px;
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        -o-border-radius: 7px;
+      }
+
+      & > *:first-child {
+        @include mixins.setBgColor(
+          variables.$gray-color-4,
+          variables.$dark-color-5
+        );
+        width: 60%;
+      }
+
+      & > *:last-child {
+        @include mixins.setBgColor(
+          variables.$gray-color-7,
+          variables.$gray-color-3
+        );
+        width: 100%;
+      }
+    }
+  }
+}

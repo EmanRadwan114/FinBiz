@@ -1,0 +1,218 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+//———————————————————————————————— 3rd card ————————————————————————————————
+.outer-circle {
+  @include mixins.setBgColor(variables.$light-color-2, variables.$dark-color-3);
+
+  margin: 32px auto 0 auto;
+  width: 264px;
+  height: 264px;
+
+  &,
+  .inner-circle {
+    @include mixins.setBorderColor(
+      variables.$gray-color-9,
+      variables.$dark-color-7
+    );
+
+    @include mixins.displayFlex(center, center, 0);
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 999px;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    -ms-border-radius: 999px;
+    -o-border-radius: 999px;
+  }
+
+  .inner-circle {
+    @include mixins.setBgColor(
+      variables.$primary-color-light,
+      variables.$dark-color-4
+    );
+
+    width: 208px;
+    height: 208px;
+
+    img {
+      width: 48px;
+      height: 48px;
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        margin-inline-start: -20px;
+      }
+    }
+  }
+}
+
+//———————————————————————————————— 4th card ————————————————————————————————
+.invoice-box {
+  @include mixins.displayFlex(space-between, start, 37px);
+  width: 100%;
+
+  .total,
+  .invoice-info {
+    @include mixins.setBgColor(
+      variables.$light-color-2,
+      variables.$dark-color-4
+    );
+
+    width: calc(100% / 2);
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+  }
+
+  .total {
+    @include mixins.setBorderColor(
+      variables.$dark-color-5,
+      variables.$dark-color-7
+    );
+
+    padding: 27px 37px 27px 22px;
+    margin-top: 115px;
+
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    span {
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$base-color-light
+      );
+
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 40px;
+      padding-block-end: 22px;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      display: block;
+      margin-block-end: 27px;
+    }
+
+    .placeholder {
+      @include mixins.displayFlex(start, stretch, 10px, column);
+
+      div {
+        @include mixins.setBgColor(
+          variables.$gray-color-7,
+          variables.$gray-color-1
+        );
+
+        height: 10px;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -ms-border-radius: 100px;
+        -o-border-radius: 100px;
+
+        &:last-child {
+          width: 65%;
+        }
+      }
+    }
+  }
+
+  .invoice-info {
+    padding: 19px 21px;
+    margin-top: 8px;
+
+    .invoice-title {
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$base-color-light
+      );
+
+      font-size: variables.$font-size-18;
+      line-height: 20px;
+      font-weight: 500;
+
+      margin-bottom: 21px;
+    }
+
+    .invoices {
+      @include mixins.displayFlex(start, stretch, 21px, column);
+    }
+
+    .invoice-item {
+      @include mixins.displayFlex(start, center, 12px);
+
+      .invoice-icon {
+        @include mixins.displayFlex(center, center, 0);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        font-size: 0;
+      }
+
+      .item-info {
+        @include mixins.setTextColor(
+          variables.$gray-color-1,
+          variables.$base-color-light
+        );
+
+        span {
+          font-size: variables.$font-size-14;
+          line-height: 14px;
+          display: inline-block;
+          margin-block-end: 11px;
+        }
+
+        div {
+          @include mixins.setBgColor(
+            variables.$gray-color-7,
+            variables.$gray-color-1
+          );
+          height: 8px;
+          border-radius: 100px;
+          -webkit-border-radius: 100px;
+          -moz-border-radius: 100px;
+          -ms-border-radius: 100px;
+          -o-border-radius: 100px;
+        }
+      }
+
+      &:first-child .invoice-icon {
+        background-color: variables.$pink-color;
+      }
+      &:nth-child(2) .invoice-icon {
+        background-color: variables.$blue-color;
+      }
+      &:last-child .invoice-icon {
+        background-color: variables.$lime-color;
+      }
+      &:last-child .item-info div {
+        width: 80%;
+      }
+    }
+  }
+}
+
+//———————————————————————————————— 5th card ————————————————————————————————
+.explore-btn {
+  @include mixins.setBgColor(
+    variables.$dark-color-5,
+    variables.$base-color-light
+  );
+
+  @include mixins.setTextColor(
+    variables.$base-color-light,
+    variables.$dark-color-5
+  );
+
+  padding: 19px 43px;
+  margin-top: 60px;
+  width: fit-content;
+}

@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./style.module.scss";
-import SectionHeader from "../ui/section-header/SectionHeader";
+import SectionHeader from "../../components/ui/section-header/SectionHeader";
 import pricingImgLight from "@/assets/pricing.svg";
 import pricingImgDark from "@/assets/pricing-dark.svg";
 import { useTheme } from "next-themes";
-import PricingPlan from "../ui/pricing-plan/PricingPlan";
+import PricingPlan from "../../components/ui/pricing-plan/PricingPlan";
 import { plansInfo } from "../../data/plans";
 
 const PricingTable: React.FC = () => {
