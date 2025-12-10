@@ -1,0 +1,44 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.card {
+  @include mixins.setBgColor(
+    variables.$base-color-light,
+    variables.$dark-color-2
+  );
+
+  @include mixins.setBorderColor(
+    variables.$gray-color-7,
+    variables.$gray-color-1
+  );
+
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    @include mixins.displayFlex(center, stretch, 0, column);
+    @include mixins.setTextColor(
+      variables.$dark-color-5,
+      variables.$light-color-6
+    );
+
+    font-weight: 700;
+    margin-block-end: 10px;
+  }
+
+  .text-content {
+    @include mixins.setTextColor(
+      variables.$gray-color-1,
+      variables.$gray-color-5
+    );
+  }
+
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}

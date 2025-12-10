@@ -9,7 +9,7 @@ const BalanceCard: React.FC = () => {
     <StatsCard paddingBlock={20} paddingInline={22}>
       <div className={styles.box}>
         {balance.map((item, indx) => (
-          <div className={styles["card-item"]}>
+          <div className={styles["card-item"]} key={item.title}>
             <div className={styles.header}>
               <h3 className={styles["item-title"]}>{item.title}</h3>
               {item.percentage && (

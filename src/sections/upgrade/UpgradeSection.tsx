@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./style.module.scss";
 import secImg from "@/assets/man.png";
-import Button from "../ui/button/Button";
+import Button from "../../components/ui/button/Button";
 import { Link } from "react-router";
 
 const UpgradeSection: React.FC = () => {

@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./style.module.scss";
 import { FaArrowRight } from "react-icons/fa6";
-import Button from "../ui/button/Button";
-import Input from "../ui/input/Input";
+import Button from "../../components/ui/button/Button";
+import Input from "../../components/ui/input/Input";
 import person1Img from "@/assets/person1.svg";
 import person2Img from "@/assets/person2.svg";
 import person3Img from "@/assets/person3.svg";

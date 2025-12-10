@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./style.module.scss";
 import { profitStats } from "../../data/stats";
-import ProfitCard from "../ui/profit-card/ProfitCard";
-import BalanceCard from "../balance-card/BalanceCard";
-import MainChart from "../main-chart/MainChart";
-import EmployeeInfo from "../employee-info/EmployeeInfo";
+import ProfitCard from "../../components/ui/profit-card/ProfitCard";
+import BalanceCard from "../../components/balance-card/BalanceCard";
+import MainChart from "../../components/main-chart/MainChart";
+import EmployeeInfo from "../../components/employee-info/EmployeeInfo";
 
-const Stats: React.FC = () => {
+const StatsSection: React.FC = () => {
   return (
     <section className={styles["stats-sec"]}>
       <div className={`container ${styles["sec-container"]}`}>
@@ -42,4 +42,4 @@ const Stats: React.FC = () => {
   );
 };
 
-export default Stats;
+export default StatsSection;
