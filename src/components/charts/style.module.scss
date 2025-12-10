@@ -1,0 +1,63 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+//———————————————————————————————— main chart ————————————————————————————————
+.chart-header {
+  @include mixins.displayFlex(space-between, stretch);
+  @include mixins.setTextColor(
+    variables.$gray-color-1,
+    variables.$light-color-3
+  );
+  padding: 25px;
+  text-transform: capitalize;
+
+  & > div {
+    @include mixins.displayFlex(flex-end, stretch, 30px);
+  }
+
+  margin-bottom: 10px;
+}
+
+//———————————————————————————————— single line chart ————————————————————————————————
+.single-chart {
+  margin-top: 32px;
+
+  & > div {
+    @include mixins.setBgColor(
+      variables.$light-color-2,
+      variables.$dark-color-4
+    );
+
+    position: relative;
+  }
+
+  .percentage {
+    @include mixins.displayFlex(start, center, 8px);
+    color: variables.$accent-color;
+    font-weight: 500;
+    font-size: variables.$font-size-14;
+    line-height: 20px;
+    position: absolute;
+    left: 32px;
+    top: 32px;
+
+    & > div {
+      @include mixins.displayFlex();
+      border-radius: 50%;
+      padding: 6px;
+      background-color: variables.$accent-dark-bg-color;
+      width: 24px;
+      height: 24px;
+      font-size: 0;
+    }
+  }
+}
+
+//———————————————————————————————— multiline chart ————————————————————————————————
+.multiline-chart {
+  margin-top: 18px;
+  & > * {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

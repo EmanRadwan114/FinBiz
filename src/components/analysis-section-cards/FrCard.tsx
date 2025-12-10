@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./style.module.scss";
 import AnalysisCard from "../ui/analysis-card/AnalysisCard";
+import SingleLineChart from "../charts/SingleLineChart";
 
 const FrCard: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const FrCard: React.FC = () => {
       textContent="Make informed decisions backed by 
 data through our analytics tools."
     >
-      hi
+      <SingleLineChart />
     </AnalysisCard>
   );
 };

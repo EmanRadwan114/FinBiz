@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./style.module.scss";
 import AnalysisCard from "../ui/analysis-card/AnalysisCard";
+import MultiLineChart from "../charts/MultiLineChart";
 
 const SecCard: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const SecCard: React.FC = () => {
       subTitle="Today and Tomorrow."
       textContent="Bring harmony to team expenses with budget limits and real-time monitiring. Freedom for your staff. Peace of mind for you."
     >
-      hi
+      <MultiLineChart />
     </AnalysisCard>
   );
 };

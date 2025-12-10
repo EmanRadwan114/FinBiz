@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import { profitStats } from "../../data/stats";
 import ProfitCard from "../../components/ui/profit-card/ProfitCard";
 import BalanceCard from "../../components/balance-card/BalanceCard";
-import MainChart from "../../components/main-chart/MainChart";
+import MainChart from "../../components/charts/MainChart";
 import EmployeeInfo from "../../components/employee-info/EmployeeInfo";
 import Tabs from "../../components/navs-and-tabs/Tabs";
 import AnalysisSection from "../analysis-section/AnalysisSection";
