@@ -43,6 +43,13 @@
   gap: $gap;
 }
 
+//grid
+@mixin displayGrid($colNum: 1, $colGap: 8px, $rowGap: 8px) {
+  display: grid;
+  grid-template-columns: repeat($colNum, 1fr);
+  gap: $rowGap $colGap;
+}
+
 //set text color
 @mixin setTextColor($lightThemeColor, $darkThemeColor) {
   color: $lightThemeColor;

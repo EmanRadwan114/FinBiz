@@ -1,4 +1,4 @@
-import type { IPricePlan } from "./interfaces";
+import { type IPricePlan } from "./../types/interfaces";
 
 export const plansInfo: IPricePlan[] = [
   {
