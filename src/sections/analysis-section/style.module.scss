@@ -2,13 +2,11 @@
 @use "@/styles/mixins";
 
 .analysis-sec {
-  @include mixins.setBgColor(variables.$light-color-1, variables.$dark-color-1);
-
-  padding-block: 142px 200px;
+  padding: 0px 200px 142px 200px;
 
   .sec-container {
     @include mixins.minScreen(lg);
-    max-width: 78%;
+    max-width: 95%;
   }
 
   .cards {

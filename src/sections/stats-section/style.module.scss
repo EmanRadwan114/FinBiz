@@ -2,12 +2,12 @@
 @use "@/styles/mixins";
 
 .stats-sec {
-  background: linear-gradient(
-    variables.$light-color-4 62%,
-    variables.$light-color-1 62%
-  );
-
+  position: relative;
   padding-block-end: 48px;
+  background: linear-gradient(
+    rgba(variables.$light-color-4, 1) 62%,
+    rgba(variables.$light-color-1, 0.12) 62%
+  );
 
   .sec-container {
     @include mixins.minScreen(lg);
@@ -42,7 +42,7 @@
             color: variables.$stats-color-red;
           }
         }
-        &:last-of-type {
+        &:nth-of-type(3) {
           & span {
             color: variables.$stats-color-blue;
           }
@@ -66,8 +66,26 @@
 :global(html.dark) {
   .stats-sec {
     background: linear-gradient(
-      variables.$dark-color-5 62%,
-      variables.$dark-color-1 62%
+      rgba(variables.$dark-color-5, 1) 62%,
+      rgba(variables.$dark-color-1, 0.12) 62%
+    );
+  }
+  .gradient {
+    background: radial-gradient(
+      circle at 50% 33%,
+      rgba(variables.$primary-bg-color, 0.5) 0%,
+      variables.$dark-color-1 30%
+    );
+  }
+}
+
+//———————————————————————————————— gradient ————————————————————————————————
+.radial-gradient {
+  .gradient {
+    background: radial-gradient(
+      circle at 50% 35%,
+      rgba(variables.$primary-bg-color, 0.5) 0%,
+      variables.$light-color-1 25%
     );
   }
 }

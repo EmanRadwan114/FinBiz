@@ -1,0 +1,49 @@
+@use "@/styles/variables";
+@use "@/styles/mixins";
+
+.tabs {
+  @include mixins.displayFlex();
+
+  @include mixins.setBgColor(
+    rgba(variables.$light-color-1, 0.2),
+    rgba(variables.$dark-color-1, 0.2)
+  );
+  width: 100%;
+
+  padding-block-end: 142px;
+
+  ul {
+    @include mixins.displayFlex(center, center);
+    background-color: rgba($color: variables.$base-color-light, $alpha: 0.2);
+    backdrop-filter: blur(64.3px);
+    -webkit-backdrop-filter: blur(64.3px);
+
+    border: 1px solid variables.$primary-bg-color;
+    padding: 6px 8px;
+
+    li {
+      @include mixins.setTextColor(
+        variables.$dark-color-5,
+        variables.$base-color-light
+      );
+      padding: 12px 22px;
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: variables.$font-size-18;
+
+      &:last-child {
+        color: variables.$dark-color-5 !important;
+        background-color: variables.$base-color-light;
+      }
+    }
+
+    &,
+    li:last-child {
+      border-radius: 48px;
+      -webkit-border-radius: 48px;
+      -moz-border-radius: 48px;
+      -ms-border-radius: 48px;
+      -o-border-radius: 48px;
+    }
+  }
+}
