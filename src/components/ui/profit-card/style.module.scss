@@ -37,9 +37,9 @@
     font-size: 40px;
     @include mixins.minScreen(xl) {
       font-size: 56px;
+      line-height: 72px;
     }
     font-weight: 500;
-    line-height: 72px;
   }
 
   .chart {
