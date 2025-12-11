@@ -11,6 +11,7 @@ import Pricing from "./pages/Pricing.tsx";
 import "@fontsource/dm-sans/400.css";
 import "@fontsource/inter/400.css";
 import "./index.scss";
+import "./i18n/i18n.ts";
 
 const router = createBrowserRouter([
   {

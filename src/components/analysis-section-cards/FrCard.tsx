@@ -1,13 +1,15 @@
 import React from "react";
 import AnalysisCard from "../ui/analysis-card/AnalysisCard";
 import SingleLineChart from "../charts/SingleLineChart";
+import { useTranslation } from "react-i18next";
 
 const FrCard: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <AnalysisCard
-      title="Simple analytics"
-      textContent="Make informed decisions backed by 
-data through our analytics tools."
+      title={t("features.simple_analytics.title")}
+      textContent={t("features.simple_analytics.description")}
     >
       <SingleLineChart />
     </AnalysisCard>

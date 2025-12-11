@@ -1,19 +1,43 @@
-export const profitStats: {
-  title: string;
-  price: string;
-  percentage: number;
-}[] = [
-  { title: "Total Profit", price: "350.240", percentage: 18.23 },
-  { title: "Total revenue", price: "400.690", percentage: 28.35 },
-  { title: "Product sold", price: "200.000", percentage: 28.35 },
+// data/stats.ts (or wherever profitStats lives)
+
+export const profitStats = [
+  {
+    keyTitle: "dashboard.metrics.total_profit",
+    keyPrice: "dashboard.values.profit_amount",
+    keyPercentage: "dashboard.values.profit_change",
+  },
+  {
+    keyTitle: "dashboard.metrics.total_revenue",
+    keyPrice: "dashboard.values.revenue_amount",
+    keyPercentage: "dashboard.values.revenue_change",
+  },
+  {
+    keyTitle: "dashboard.metrics.products_sold",
+    keyPrice: "dashboard.values.products_sold_amount",
+    keyPercentage: "dashboard.values.products_sold_change",
+  },
 ];
 
-export const balance: { title: string; price: string; percentage?: number }[] =
-  [
-    { title: "Total Balance", price: "350.0" },
-    { title: "Total Income", price: "320.0", percentage: 92 },
-    { title: "Total Expense", price: "220.0", percentage: 92 },
-  ];
+export const balance: {
+  keyTitle: string;
+  keyPrice: string;
+  percentage?: number;
+}[] = [
+  {
+    keyTitle: "dashboard.metrics.total_balance",
+    keyPrice: "dashboard.values.balance_amount",
+  },
+  {
+    keyTitle: "dashboard.metrics.total_income",
+    keyPrice: "dashboard.values.income_amount",
+    percentage: 92,
+  },
+  {
+    keyTitle: "dashboard.metrics.total_expense",
+    keyPrice: "dashboard.values.expense_amount",
+    percentage: 92,
+  },
+];
 
 export const analysisData: {
   title: string;

@@ -1,50 +1,58 @@
-import { type IPricePlan } from "./../types/interfaces";
+interface IPlanKey {
+  keyTitle: string;
+  keyDescription: string;
+  price: number;
+  btnVariant: "rounded" | "outlined";
+  keyPlanActionText: string;
+  keyItems: string[];
+  withBadge: boolean;
+}
 
-export const plansInfo: IPricePlan[] = [
+export const plansInfo: IPlanKey[] = [
   {
-    title: "basic",
-    description: "Get a professional website designed according to your needs.",
+    keyTitle: "pricing_page.plans.basic.name",
+    keyDescription: "pricing_page.plans.basic.description",
     price: 499,
     btnVariant: "outlined",
-    planActionText: "Get started",
-    items: [
-      "Get a fully designed Website.",
-      "Webflow Development",
-      "Limited Support",
+    keyPlanActionText: "pricing_page.plans.basic.button",
+    keyItems: [
+      "pricing_page.plans.basic.features.0",
+      "pricing_page.plans.basic.features.1",
+      "pricing_page.plans.basic.features.2",
     ],
     withBadge: false,
   },
   {
-    title: "pro",
-    description: "Get a professional website designed according to your needs.",
+    keyTitle: "pricing_page.plans.pro.name",
+    keyDescription: "pricing_page.plans.pro.description",
     price: 499,
     btnVariant: "rounded",
-    planActionText: "Get started",
-    items: [
-      "Get a fully designed Website.",
-      "Webflow Development",
-      "Limited Support",
-      "Standart integrations",
-      "Email support",
-      "Email support",
+    keyPlanActionText: "pricing_page.plans.pro.button",
+    keyItems: [
+      "pricing_page.plans.pro.features.0",
+      "pricing_page.plans.pro.features.1",
+      "pricing_page.plans.pro.features.2",
+      "pricing_page.plans.pro.features.3",
+      "pricing_page.plans.pro.features.4",
+      "pricing_page.plans.pro.features.5",
     ],
     withBadge: true,
   },
   {
-    title: "enterprise",
-    description: "Get a professional website designed according to your needs.",
+    keyTitle: "pricing_page.plans.enterprise.name",
+    keyDescription: "pricing_page.plans.enterprise.description",
     price: 999,
     btnVariant: "rounded",
-    planActionText: "Contact Us",
-    items: [
-      "Get a fully designed Website.",
-      "Webflow Development",
-      "Limited Support",
-      "Standart integrations",
-      "Email support",
-      "Email support",
-      "Email support",
-      "Email support",
+    keyPlanActionText: "pricing_page.plans.enterprise.button",
+    keyItems: [
+      "pricing_page.plans.enterprise.features.0",
+      "pricing_page.plans.enterprise.features.1",
+      "pricing_page.plans.enterprise.features.2",
+      "pricing_page.plans.enterprise.features.3",
+      "pricing_page.plans.enterprise.features.4",
+      "pricing_page.plans.enterprise.features.5",
+      "pricing_page.plans.enterprise.features.6",
+      "pricing_page.plans.enterprise.features.7",
     ],
     withBadge: false,
   },

@@ -7,8 +7,18 @@ import MainChart from "../../components/charts/MainChart";
 import EmployeeInfo from "../../components/employee-info/EmployeeInfo";
 import Tabs from "../../components/navs-and-tabs/Tabs";
 import AnalysisSection from "../analysis-section/AnalysisSection";
+import { useTranslation } from "react-i18next";
 
 const StatsSection: React.FC = () => {
+  const { t } = useTranslation();
+
+  const translatedProfitStats = profitStats.map((item) => ({
+    // Map the keys to the final translated strings
+    title: t(item.keyTitle),
+    price: t(item.keyPrice),
+    percentage: t(item.keyPercentage),
+  }));
+
   return (
     <div className={styles["radial-gradient"]}>
       <div className={styles.gradient}>
@@ -17,9 +27,11 @@ const StatsSection: React.FC = () => {
             <div className={styles["stats-card"]}>
               <div className={styles["profit-cards"]}>
                 {/* 1st row */}
-                {profitStats.map((item) => (
+                {translatedProfitStats.map((item) => (
+                  // Use the translated 'title' for the key
                   <div className={styles["profit-card"]} key={item.title}>
                     <ProfitCard
+                      // Pass the translated strings as props
                       title={item.title}
                       price={item.price}
                       percentage={item.percentage}

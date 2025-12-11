@@ -1,0 +1,191 @@
+{
+  "header": {
+    "product": "Product",
+    "pages": "Pages",
+    "integrations": "Integrations",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "get_started": "Get started"
+  },
+  "hero_section": {
+    "tagline": "Introducing AI Automation",
+    "title": "The Finance Solutions For Your Business",
+    "subtitle": "Empower your finance team. The one-stop platform for all financial management of small and medium-sized business.",
+    "email_placeholder": "Enter your email address",
+    "book_demo_button": "Book a Demo",
+    "new_badge": "New"
+  },
+  "reviews": {
+    "count": "1200+ reviews (4.9 of 5)"
+  },
+  "dashboard": {
+    "title": "Spend Overview",
+    "metrics": {
+      "total_profit": "Total Profit",
+      "total_revenue": "Total revenue",
+      "products_sold": "Product sold",
+      "total_balance": "Total Balance",
+      "total_income": "Total Income",
+      "total_expense": "Total Expense"
+    },
+    "values": {
+      "profit_amount": "$350.240",
+      "profit_change": "+18.23",
+      "revenue_amount": "$400.690",
+      "revenue_change": "+28.35",
+      "products_sold_amount": "$200.000",
+      "products_sold_change": "+28.35",
+      "balance_amount": "$350.0",
+      "income_amount": "$320.0",
+      "expense_amount": "$220.0",
+      "income_percent": "92%",
+      "expense_percent": "92%"
+    },
+    "time_filters": {
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "yearly": "Yearly"
+    },
+    "actions": {
+      "transfer": "Transfer"
+    },
+    "categories": {
+      "employee": "Employee",
+      "independent_contractor": "Independent Contractor",
+      "contracted_employee": "Contracted Employee",
+      "stakeholders": "Stakeholders"
+    },
+    "chart_labels": {
+      "am12": "12:00AM",
+      "am1": "01:00AM",
+      "am2": "02:00AM",
+      "am3": "03:00AM",
+      "am4": "04:00AM",
+      "am5": "05:00AM",
+      "am6": "06:00AM",
+      "am7": "07:00AM",
+      "am8": "08:00AM",
+      "am9": "09:00AM",
+      "am10": "10:00AM",
+      "am11": "11:00AM"
+    }
+  },
+  "accounting": {
+    "title": "Real-time accounting at your fingertips.",
+    "description": "Take the pain out of book keeping! Wave goodbye to mountains of paperwork and endless email reminders. There's now a new way of accounting."
+  },
+  "invoices": {
+    "monthly_invoice": "Monthly Invoice",
+    "download_pdf": "download PDF"
+  },
+  "expense_management": {
+    "title": "Optimise expense Management as a team",
+    "explore_more_button": "Explore more"
+  },
+  "navigation": {
+    "product": "Product",
+    "integration": "Integration",
+    "demo": "Demo",
+    "pricing": "Pricing",
+    "login": "Login"
+  },
+  "features": {
+    "simple_analytics": {
+      "title": "Simple analytics",
+      "description": "Make informed decisions backed by data through our analytics tools.",
+      "percentage": "14.12%"
+    },
+    "main_pitch": {
+      "title_1": "Boosting Business.",
+      "title_2": "Today and Tomorrow.",
+      "description": "Bring harmony to team expenses with budget limits and real-time monitoring. Freedom for your staff. Peace of mind for you."
+    },
+    "easy_collaboration": {
+      "title": "Easy collaboration",
+      "description": "Seamlessly collaborate with your team members like never before."
+    }
+  },
+  "testimonials_section": {
+    "badge": "Testimonials",
+    "title": "What are people saying",
+    "description": "Thank you for your trust in Crypt Land! We are grateful for your feedback and are committed to providing the best [products/ services offered]. Read what our clients have to say about their experience with us."
+  },
+  "pricing_page": {
+    "badge": "Pricing",
+    "title": "Find the right plan",
+    "description": "Invest in your company's future with our comprehensive financial solution. Contact us for pricing details and see how we can help you streamline your finances and reach your business goals.",
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "description": "Get a professional website designed according to your needs.",
+        "price": "$499",
+        "duration": "/month",
+        "features": [
+          "Get a fully designed Website.",
+          "Webflow Development",
+          "Limited Support"
+        ],
+        "button": "Get started"
+      },
+      "pro": {
+        "name": "Pro",
+        "badge": "Popular",
+        "description": "Get a professional website designed according to your needs.",
+        "price": "$499",
+        "duration": "/month",
+        "features": [
+          "Get a fully designed Website",
+          "Webflow Development",
+          "Limited Support",
+          "Standart integrations",
+          "Email support",
+          "Email support"
+        ],
+        "button": "Get started"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Get a professional website designed according to your needs.",
+        "price": "$999",
+        "duration": "/month",
+        "features": [
+          "Get a fully designed Website.",
+          "Webflow Development.",
+          "Limited Support",
+          "Standart integrations",
+          "Email support",
+          "Email support",
+          "Email support",
+          "Email support"
+        ],
+        "button": "Contact Us."
+      }
+    }
+  },
+  "finbiz_cta": {
+    "title": "Let's Upgrade your finances experience by using FinBiz",
+    "request_demo_button": "Request Demo",
+    "watch_video_button": "Watch Video"
+  },
+  "footer": {
+    "description": "Data analytic software is a type of software tool used for data analysis and reporting.",
+    "company_section": {
+      "title": "Company",
+      "service": "Service",
+      "resources": "Resources",
+      "about_us": "About us"
+    },
+    "help_section": {
+      "title": "Help",
+      "customer_support": "Customer Support",
+      "terms_and_conditions": "Terms & Conditions",
+      "privacy_policy": "Privacy Policy"
+    },
+    "newsletter_section": {
+      "title": "Subscribe to Newsletter",
+      "email_placeholder": "Enter email address",
+      "join_button": "Join"
+    }
+  }
+}
