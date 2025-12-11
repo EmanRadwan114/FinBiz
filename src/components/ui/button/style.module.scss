@@ -42,6 +42,8 @@
     );
 
     position: relative;
+    display: block;
+
     border-color: variables.$dark-color-8;
     border-width: 1px 1px 0 1px;
     border-style: solid;

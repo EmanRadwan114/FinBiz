@@ -3,6 +3,7 @@ import styles from "./style.module.scss";
 import AnalysisCard from "../ui/analysis-card/AnalysisCard";
 import invoiceImg from "@/assets/invoice.svg";
 import { useTranslation } from "react-i18next";
+import { BiDotsVerticalRounded } from "react-icons/bi";
 
 const invoiceData = [
   "John Client_download.Pdf",
@@ -42,7 +43,10 @@ const ForthCard: React.FC = () => {
                   <img src={invoiceImg} alt={t("common.invoice_icon")} />
                 </div>
                 <div className={styles["item-info"]}>
-                  <span>{item}</span>
+                  <div className={styles.header}>
+                    <span>{item}</span>
+                    <BiDotsVerticalRounded className={styles.dots} />
+                  </div>
                   <div></div>
                 </div>
               </div>

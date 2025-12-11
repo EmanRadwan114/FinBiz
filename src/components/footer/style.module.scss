@@ -1,7 +1,7 @@
 @use "@/styles/variables";
 @use "@/styles/mixins";
 
-//———————————————————————————————— custm styles ————————————————————————————————
+//———————————————————————————————— custom styles ————————————————————————————————
 footer {
   @include mixins.setBgColor(variables.$gray-color-8, variables.$dark-color-1);
 
@@ -9,13 +9,44 @@ footer {
   padding-block-start: 98px;
 
   .container {
-    max-width: 85%;
     margin: 0 auto;
+    max-width: 95%;
+  }
+
+  @include mixins.minScreen(md) {
+    .container {
+      max-width: 92%;
+    }
+  }
+  @include mixins.minScreen(xl) {
+    .container {
+      max-width: 85%;
+    }
   }
 
   .footer-content {
-    @include mixins.displayFlex(start, stretch, 138px);
+    @include mixins.displayFlex(start, stretch, 70px, column);
+
+    @include mixins.minScreen(md) {
+      @include mixins.displayFlex(space-between, stretch, 70px);
+      flex-wrap: wrap;
+    }
+
+    @include mixins.minScreen(2xl) {
+      gap: 138px;
+      flex-wrap: nowrap;
+    }
+
     padding-block: 47px;
+
+    & > * {
+      @include mixins.minScreen(lg) {
+        width: calc(50% - 70px);
+      }
+      @include mixins.minScreen(2xl) {
+        width: fit-content;
+      }
+    }
 
     h2 {
       @include mixins.setTextColor(
@@ -42,7 +73,9 @@ footer {
   }
 
   .first-col {
-    max-width: 32%;
+    @include mixins.minScreen(xl) {
+      max-width: 32%;
+    }
 
     .logo {
       @include mixins.displayFlex(start);

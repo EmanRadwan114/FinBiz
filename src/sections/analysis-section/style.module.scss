@@ -2,15 +2,30 @@
 @use "@/styles/mixins";
 
 .analysis-sec {
-  padding: 0px 200px 142px 200px;
+  padding: 0px 0 142px 0;
 
+  @include mixins.minScreen(md) {
+    padding: 0px 50px 142px 50px;
+  }
+  @include mixins.minScreen(3xl) {
+    padding: 0px 200px 142px 200px;
+  }
   .sec-container {
-    @include mixins.minScreen(lg);
-    max-width: 95%;
+    @include mixins.minScreen(lg) {
+      max-width: 95%;
+    }
   }
 
   .cards {
-    @include mixins.displayGrid(12, 30px, 30px);
+    @include mixins.displayGrid(1, 30px, 30px);
+
+    @include mixins.minScreen(xl) {
+      @include mixins.displayGrid(12, 30px, 30px);
+    }
+
+    & > * {
+      width: 100%;
+    }
 
     & > *:first-child,
     & > *:nth-child(3) {
@@ -42,11 +57,15 @@
     }
 
     & > *:first-child {
-      grid-column: span 3;
+      @include mixins.minScreen(xl) {
+        grid-column: span 3;
+      }
     }
 
     & > *:nth-child(2) {
-      grid-column: span 6;
+      @include mixins.minScreen(xl) {
+        grid-column: span 6;
+      }
       padding: 32px 37px 0 37px;
       & > p {
         font-size: variables.$font-size-20;
@@ -54,21 +73,30 @@
     }
 
     & > *:nth-child(3) {
-      grid-column: span 3;
+      @include mixins.minScreen(xl) {
+        grid-column: span 3;
+      }
     }
 
     & > *:nth-child(4) {
-      grid-column: span 6;
+      @include mixins.minScreen(xl) {
+        grid-column: span 6;
+      }
       padding: 37px 37px 0 38.5px;
     }
 
     & > *:nth-child(5) {
-      grid-column: span 6;
+      @include mixins.minScreen(xl) {
+        grid-column: span 6;
+      }
       padding: 48px 52px;
 
       & > h3 > span {
-        font-size: 48px;
-        line-height: 72px;
+        @include mixins.minScreen(xl) {
+          font-size: 48px;
+          line-height: 72px;
+        }
+        font-size: 30px;
       }
 
       & > p {

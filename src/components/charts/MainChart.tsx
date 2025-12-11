@@ -12,7 +12,6 @@ import {
   Legend,
   Filler,
   Chart,
-  Scale,
   type ChartData,
   type ChartOptions,
   type Tick,
@@ -185,7 +184,6 @@ const MainChart: React.FC = () => {
               family: '"DM Sans", sans-serif',
             },
             callback: function (
-              this: Scale,
               value: string | number,
               index: number,
               values: Tick[]
@@ -204,7 +202,7 @@ const MainChart: React.FC = () => {
       },
       backgroundColor: "rgba(0, 0, 0, 0)",
     });
-  }, [resolvedTheme, translatedLabels]);
+  }, [resolvedTheme]);
 
   return (
     <StatsCard paddingBlock={0} paddingInline={0}>
