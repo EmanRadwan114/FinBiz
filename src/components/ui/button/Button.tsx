@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes, forwardRef, Ref } from "react";
+import { type ButtonHTMLAttributes, forwardRef, type Ref } from "react";
 import styles from "./style.module.scss";
 import type { TBtnVariant } from "../../../types/types";
 
