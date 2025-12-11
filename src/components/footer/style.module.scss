@@ -42,6 +42,8 @@ footer {
   }
 
   .first-col {
+    max-width: 32%;
+
     .logo {
       @include mixins.displayFlex(start);
       margin-block-end: 32px;

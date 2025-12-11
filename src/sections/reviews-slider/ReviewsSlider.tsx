@@ -1,65 +1,70 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import styles from "./style.module.scss";
 import SectionHeader from "../../components/ui/section-header/SectionHeader";
-import { FiMessageSquare } from "react-icons/fi";
 import SliderCard from "../../components/ui/slider-card/SliderCard";
-import img from "@/assets/person1.svg";
 import Button from "../../components/ui/button/Button";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.css";
-import type { Swiper as swiperType } from "swiper/types";
-import { Autoplay } from "swiper/modules";
+import Spinner from "../../components/ui/spinner/Spinner";
+import img from "@/assets/person1.svg";
+import { FiMessageSquare } from "react-icons/fi";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as swiperType } from "swiper/types";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
 import { useQuery } from "@tanstack/react-query";
 import { getAllPosts } from "../../services/posts";
-import Spinner from "../../components/ui/spinner/Spinner";
+import { useTranslation } from "react-i18next";
 
 const ReviewsSlider: React.FC = () => {
   const swiperRef = useRef<null | swiperType>(null);
 
-  //———————————————————————————————— fetch posts ————————————————————————————————
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
+
   const {
     data: posts,
     isLoading,
     error,
-    refetch,
   } = useQuery({
     queryKey: ["posts"],
-    queryFn: () => getAllPosts(),
+    queryFn: getAllPosts,
   });
 
-  useEffect(() => {
-    refetch();
-  }, []);
+  const handlePrev = () => {
+    if (isArabic) {
+      swiperRef.current?.slideNext();
+    } else {
+      swiperRef.current?.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (isArabic) {
+      swiperRef.current?.slidePrev();
+    } else {
+      swiperRef.current?.slideNext();
+    }
+  };
 
   if (isLoading) return <Spinner />;
 
-  if (error) return <p>Error in fetching posts</p>;
-
-  console.log(posts);
+  if (error) return <p>{t("common.error_fetching_data")}</p>;
 
   return (
     <section className={styles["reviews-sec"]}>
-      {/* header */}
       <div className="container">
         <SectionHeader
           icon={<FiMessageSquare size={14} className={styles["sub-icon"]} />}
-          subTitle="Testimonials"
+          subTitle={t("testimonials_section.badge")}
         >
-          <h2>What are people saying</h2>
-          <p>
-            "Thank you for your trust in Crypt Land! We are grateful for your
-            feedback and are committed to providing the best [products/ services
-            offered]. Read what our clients have to say about their experience
-            with us.
-          </p>
+          <h2>{t("testimonials_section.title")}</h2>
+          <p>{t("testimonials_section.description")}</p>
         </SectionHeader>
       </div>
 
-      {/* slider */}
       <div className={`container ${styles["slider-container"]}`}>
         <Swiper
-          modules={[Autoplay]}
+          modules={[Autoplay, Navigation]}
           spaceBetween={30}
           slidesPerView={2.55}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -69,30 +74,42 @@ const ReviewsSlider: React.FC = () => {
           }}
           speed={500}
           className={styles["my-swiper"]}
+          key={i18n.language}
+          dir={i18n.language === "ar" ? "rtl" : "ltr"}
         >
           {posts?.map((post) => (
-            <SwiperSlide>
+            <SwiperSlide key={post.id}>
               <SliderCard
-                reviewContent={post.body.slice(0, 150)}
+                reviewContent={
+                  isArabic
+                    ? "نص لوريم إيبسوم هو نوع من النصوص المؤقتة المستخدمة بشكل شائع في صناعات التصميم والنشر لملء مساحة على الصفحة وإعطاء انطباع عن الشكل النهائي للمحتوى. نص لوريم إيبسوم باللغة العربية مشتق من نص لاتيني كتبه الفيلسوف الروماني شيشرون وقد تم استخدامه منذ ستينيات القرن العشرين. النص غير منطقي ولا ينقل أي معنى محدد، مما يسمح للمصممين بالتركيز على التخطيط والعناصر المرئية دون تشتيت الانتباه بالمحتوى الهادف.".slice(
+                        0,
+                        150
+                      )
+                    : post.body.slice(0, 150)
+                }
                 userImg={img}
-                username="Alfredo Lubin"
+                username={isArabic ? "أحمد عمر" : "Alfredo Lubin"}
               />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+
       <div className={styles.btns}>
         <Button
           variant="rounded"
-          onClick={() => swiperRef.current?.slidePrev()}
+          onClick={handlePrev}
+          aria-label={t("common.previous_slide")}
         >
-          <FaArrowLeft size={20} />
+          {isArabic ? <FaArrowRight size={20} /> : <FaArrowLeft size={20} />}
         </Button>
         <Button
           variant="rounded"
-          onClick={() => swiperRef.current?.slideNext()}
+          onClick={handleNext}
+          aria-label={t("common.next_slide")}
         >
-          <FaArrowRight size={20} />
+          {isArabic ? <FaArrowLeft size={20} /> : <FaArrowRight size={20} />}
         </Button>
       </div>
     </section>

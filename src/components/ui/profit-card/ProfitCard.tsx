@@ -14,10 +14,10 @@ const ProfitCard: React.FC<IProps> = ({ title, price, percentage }) => {
       <div className={styles.box}>
         <div className={styles.header}>
           <h3 className={styles["stats-title"]}>{title}</h3>
-          <p className={styles.price}>${price}</p>
+          <p className={styles.price}>{price}</p>
         </div>
         <div className={styles.profit}>
-          <span className={styles.percentage}>+{percentage}</span>
+          <span className={styles.percentage}>{percentage}</span>
           <div className={styles.chart}>
             <span></span>
             <span></span>

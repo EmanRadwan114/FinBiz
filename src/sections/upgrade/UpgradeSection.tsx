@@ -3,8 +3,12 @@ import styles from "./style.module.scss";
 import secImg from "@/assets/man.png";
 import Button from "../../components/ui/button/Button";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next"; // Hook for translation
 
 const UpgradeSection: React.FC = () => {
+  // Destructure the translation function 't'
+  const { t } = useTranslation();
+
   return (
     <section className={styles["upgrade-sec"]}>
       <div className="container">
@@ -12,14 +16,23 @@ const UpgradeSection: React.FC = () => {
           {/* start col */}
           <div className={styles["start-col"]}>
             <div>
-              <p>Let’s Upgrade your finances experience by using FinBiz</p>
+              <p>
+                {/* Key: finbiz_cta.title */}
+                {t("finbiz_cta.title")}
+              </p>
 
               <div className={styles.btns}>
                 <Button variant="rounded" paddingVertical={18}>
-                  <Link to={"/"}>Request Demo</Link>
+                  <Link to={"/"}>
+                    {/* Key: finbiz_cta.request_demo_button */}
+                    {t("finbiz_cta.request_demo_button")}
+                  </Link>
                 </Button>
                 <Button variant="rounded" paddingVertical={18}>
-                  <Link to={"/"}>Watch Video</Link>
+                  <Link to={"/"}>
+                    {/* Key: finbiz_cta.watch_video_button */}
+                    {t("finbiz_cta.watch_video_button")}
+                  </Link>
                 </Button>
               </div>
             </div>

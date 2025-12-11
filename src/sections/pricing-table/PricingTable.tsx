@@ -6,14 +6,27 @@ import pricingImgDark from "@/assets/pricing-dark.svg";
 import { useTheme } from "next-themes";
 import PricingPlan from "../../components/ui/pricing-plan/PricingPlan";
 import { plansInfo } from "../../data/plans";
+import { useTranslation } from "react-i18next";
 
 const PricingTable: React.FC = () => {
   const { resolvedTheme } = useTheme();
+  const { t } = useTranslation();
+
+  const translatedPlans = plansInfo.map((plan) => ({
+    price: plan.price,
+    btnVariant: plan.btnVariant,
+    withBadge: plan.withBadge,
+
+    title: t(plan.keyTitle),
+    description: t(plan.keyDescription),
+    planActionText: t(plan.keyPlanActionText),
+
+    items: plan.keyItems.map((key) => t(key)),
+  }));
 
   return (
     <section className={styles["pricing-section"]}>
       <div className="container">
-        {/* header */}
         <SectionHeader
           icon={
             <img
@@ -21,19 +34,14 @@ const PricingTable: React.FC = () => {
               alt="pricing icon"
             />
           }
-          subTitle="Pricing"
+          subTitle={t("pricing_page.badge")}
         >
-          <h2>Find the right plan</h2>
-          <p>
-            "Invest in your company's future with our comprehensive financial
-            solution. Contact us for pricing details and see how we can help you
-            streamline your finances and reach your business goals.
-          </p>
+          <h2>{t("pricing_page.title")}</h2>
+          <p>{t("pricing_page.description")}</p>
         </SectionHeader>
 
-        {/* content */}
         <div className={styles.plans}>
-          {plansInfo.map((plan) => (
+          {translatedPlans.map((plan) => (
             <PricingPlan
               key={plan.title}
               title={plan.title}

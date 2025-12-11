@@ -4,6 +4,7 @@ import logo from "@/assets/logo.svg";
 import { FaTwitter, FaGithub, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router";
 import Input from "../ui/input/Input";
+import { useTranslation } from "react-i18next"; // <-- Assuming this is your hook import
 
 const socialIcons: { title: string; icon: ReactElement }[] = [
   { title: "twitter", icon: <FaTwitter size={14} /> },
@@ -12,11 +13,23 @@ const socialIcons: { title: string; icon: ReactElement }[] = [
   { title: "github", icon: <FaGithub size={18} /> },
 ];
 
-const companyLinks = ["Service", "Resources", "About us"];
+// Define the keys for mapping over
+const companyLinkKeys = [
+  "footer.company_section.service",
+  "footer.company_section.resources",
+  "footer.company_section.about_us",
+];
 
-const helpLinks = ["Customer Support", "Terms & Conditions", "Privacy Policy"];
+const helpLinkKeys = [
+  "footer.help_section.customer_support",
+  "footer.help_section.terms_and_conditions",
+  "footer.help_section.privacy_policy",
+];
 
 const Footer: React.FC = () => {
+  // 1. Destructure the translation function 't'
+  const { t } = useTranslation();
+
   return (
     <footer>
       <div className={styles.container}>
@@ -30,8 +43,8 @@ const Footer: React.FC = () => {
               </div>
             </Link>
             <p>
-              Data analysis software is a type of software tool used <br /> for
-              data analysis and reporting.
+              {/* Key: footer.description */}
+              {t("footer.description")}
             </p>
 
             <div className={styles["social-icons"]}>
@@ -45,11 +58,13 @@ const Footer: React.FC = () => {
 
           {/* 2nd col ==> company */}
           <div className={styles["second-col"]}>
-            <h2>Company</h2>
+            {/* Key: footer.company_section.title */}
+            <h2>{t("footer.company_section.title")}</h2>
             <ul>
-              {companyLinks.map((link) => (
-                <li key={link}>
-                  <Link to={"/"}>{link}</Link>
+              {/* Map over keys and translate each one */}
+              {companyLinkKeys.map((keyPath) => (
+                <li key={keyPath}>
+                  <Link to={"/"}>{t(keyPath)}</Link>
                 </li>
               ))}
             </ul>
@@ -57,11 +72,13 @@ const Footer: React.FC = () => {
 
           {/* 3rd col ==> help */}
           <div className={styles["third-col"]}>
-            <h2>Help</h2>
+            {/* Key: footer.help_section.title */}
+            <h2>{t("footer.help_section.title")}</h2>
             <ul>
-              {helpLinks.map((link) => (
-                <li key={link}>
-                  <Link to={"/"}>{link}</Link>
+              {/* Map over keys and translate each one */}
+              {helpLinkKeys.map((keyPath) => (
+                <li key={keyPath}>
+                  <Link to={"/"}>{t(keyPath)}</Link>
                 </li>
               ))}
             </ul>
@@ -69,11 +86,14 @@ const Footer: React.FC = () => {
 
           {/* 4th col */}
           <div className={styles["fourth-col"]}>
-            <h2>Subscribe to Newsletter</h2>
+            {/* Key: footer.newsletter_section.title */}
+            <h2>{t("footer.newsletter_section.title")}</h2>
             <Input
               type="email"
-              placeholder="Enter email address"
-              submitText="Join"
+              // Key: footer.newsletter_section.email_placeholder
+              placeholder={t("footer.newsletter_section.email_placeholder")}
+              // Key: footer.newsletter_section.join_button
+              submitText={t("footer.newsletter_section.join_button")}
               inputWidth="60%"
               btnWidth="36%"
             />
