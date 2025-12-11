@@ -26,7 +26,7 @@ const PricingTable: React.FC = () => {
 
   return (
     <section className={styles["pricing-section"]}>
-      <div className="container">
+      <div className={`container ${styles["sec-container"]}`}>
         <SectionHeader
           icon={
             <img

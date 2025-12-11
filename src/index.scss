@@ -15,6 +15,7 @@ body {
 .container {
   margin: 0 auto;
 
+  max-width: 95%;
   @include mixins.minScreen(lg) {
     max-width: 86.5%;
   }

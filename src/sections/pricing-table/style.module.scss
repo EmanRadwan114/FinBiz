@@ -11,9 +11,29 @@
     margin-bottom: 55px;
   }
 
+  .sec-container {
+    max-width: 95%;
+
+    @include mixins.minScreen(md) {
+      max-width: 90%;
+    }
+  }
+
   .plans {
-    @include mixins.displayFlex(center, stretch, 32px);
-    max-width: 77%;
+    @include mixins.displayFlex(center, stretch, 32px, column);
+
+    @include mixins.minScreen(md) {
+      @include mixins.displayFlex(center, stretch, 32px);
+      flex-wrap: wrap;
+    }
+
+    @include mixins.minScreen(lg) {
+      @include mixins.displayFlex(center, stretch, 32px);
+      flex-wrap: nowrap;
+    }
+    @include mixins.minScreen(2xl) {
+      max-width: 77%;
+    }
     margin: 0 auto;
   }
 }

@@ -26,74 +26,113 @@
   );
 
   .container {
-    @include mixins.displayFlex();
-    margin: 0 auto;
+    @include mixins.displayFlex(space-between);
+    padding-inline: 20px;
 
     @include mixins.minScreen(lg) {
-      max-width: 1400px;
+      @include mixins.displayFlex();
     }
+    margin: 0 auto;
+    max-width: 1400px;
 
     padding-inline: 40px;
 
     & > * {
       width: calc(100% / 3);
     }
-  }
-}
 
-.logo {
-  @include mixins.displayFlex(start);
-  img {
-    width: 18px;
-    height: 18px;
-  }
-  p {
-    @include mixins.setTextColor("inherit", variables.$light-color-6);
+    .logo {
+      @include mixins.displayFlex(start);
+      img {
+        width: 18px;
+        height: 18px;
+      }
+      p {
+        @include mixins.setTextColor("inherit", variables.$light-color-6);
 
-    font-size: variables.$font-size-20;
-    font-family: variables.$font-family-inter;
-    font-weight: 600;
-  }
-}
-
-.nav-links {
-  @include mixins.displayFlex(start);
-
-  li {
-    @include mixins.setTextColor("inherit", variables.$gray-color-5);
-    padding: 8px;
-
-    & > a {
-      text-transform: capitalize;
-      font-size: variables.$font-size-18;
-      @include mixins.displayFlex(start, center, 4.5px);
+        font-size: variables.$font-size-20;
+        font-family: variables.$font-family-inter;
+        font-weight: 600;
+      }
     }
-  }
-}
 
-.nav-actions {
-  @include mixins.displayFlex(end, center, 16px);
-  margin-inline-start: auto;
+    .nav-links {
+      @include mixins.displayFlex(start);
 
-  & > * {
-    @include mixins.setTextColor(
-      variables.$dark-color-5,
-      variables.$light-color-6
-    );
-  }
+      li {
+        @include mixins.setTextColor("inherit", variables.$gray-color-5);
+        padding: 8px;
 
-  & > *:not(button) {
-    cursor: pointer;
-    padding: 4px;
-  }
+        & > a {
+          text-transform: capitalize;
+          font-size: variables.$font-size-18;
+          @include mixins.displayFlex(start, center, 4.5px);
+        }
+      }
+    }
 
-  .lang > button {
-    @include mixins.setTextColor(
-      variables.$dark-color-5,
-      variables.$light-color-6
-    );
+    .nav-actions {
+      @include mixins.displayFlex(end, center, 16px);
+      margin-inline-start: auto;
 
-    font-size: variables.$font-size-18;
-    padding-inline: 1px;
+      & > * {
+        @include mixins.setTextColor(
+          variables.$dark-color-5,
+          variables.$light-color-6
+        );
+      }
+
+      & > *:not(button) {
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .lang > button {
+        @include mixins.setTextColor(
+          variables.$dark-color-5,
+          variables.$light-color-6
+        );
+
+        font-size: variables.$font-size-18;
+        padding-inline: 1px;
+      }
+    }
+
+    .mobile-menu {
+      text-align: end;
+      position: relative;
+
+      .menu-icon {
+        @include mixins.setTextColor(
+          variables.$dark-color-4,
+          variables.$light-color-2
+        );
+        padding: 3px;
+        cursor: pointer;
+      }
+
+      .menu-body {
+        @include mixins.setBgColor(
+          variables.$gray-color-9,
+          variables.$dark-color-6
+        );
+        @include mixins.setTextColor(
+          variables.$dark-color-4,
+          variables.$light-color-2
+        );
+
+        position: absolute;
+        inset-inline-end: 0;
+        inset-block-start: 110%;
+        z-index: 9999;
+        min-width: 250px;
+        &,
+        ul {
+          @include mixins.displayFlex(start, stretch, 15px, column);
+        }
+        padding: 15px;
+        border-radius: 8px;
+      }
+    }
   }
 }

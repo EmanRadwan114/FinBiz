@@ -13,7 +13,12 @@
   padding-block-end: 142px;
 
   ul {
-    @include mixins.displayFlex(center, center);
+    @include mixins.displayFlex(center, center, 8px);
+    flex-wrap: wrap;
+    @include mixins.minScreen(sm) {
+      @include mixins.displayFlex(center, center);
+      flex-wrap: nowrap;
+    }
     background-color: rgba($color: variables.$base-color-light, $alpha: 0.2);
     backdrop-filter: blur(64.3px);
     -webkit-backdrop-filter: blur(64.3px);

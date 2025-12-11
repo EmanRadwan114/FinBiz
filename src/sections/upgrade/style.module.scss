@@ -5,7 +5,11 @@
   padding-block: 115px;
 
   .card {
-    @include mixins.displayFlex(space-between, center);
+    @include mixins.displayFlex(space-between, center, 40px, column);
+
+    @include mixins.minScreen(xl) {
+      @include mixins.displayFlex(space-between, center);
+    }
     @include mixins.setBgColor(
       variables.$base-color-light,
       variables.$dark-color-1
@@ -31,8 +35,10 @@
 
     .start-col {
       @include mixins.displayFlex();
-      padding-inline-start: 60px;
-      width: 50%;
+      @include mixins.minScreen(xl) {
+        padding-inline-start: 60px;
+        width: 50%;
+      }
 
       p {
         @include mixins.setTextColor(
@@ -40,21 +46,32 @@
           variables.$base-color-light
         );
 
+        font-size: 40px;
+        @include mixins.minScreen(xl) {
+          font-size: 72px;
+          line-height: 86px;
+        }
+
         font-weight: 700;
-        font-size: 72px;
-        line-height: 86px;
         margin-bottom: 56px;
       }
     }
 
     .btns {
-      @include mixins.displayFlex(start, center, 22px);
+      @include mixins.displayFlex(start, stretch, 22px, column);
+
+      @include mixins.minScreen(md) {
+        @include mixins.displayFlex(start, center, 22px);
+      }
 
       button {
+        padding: 18px 35px !important;
         font-weight: 500;
         font-size: variables.$font-size-18;
-        padding-inline: 0 !important;
-        width: 240px;
+        @include mixins.minScreen(xl) {
+          padding-inline: 0 !important;
+          width: 240px;
+        }
       }
 
       button:first-of-type {

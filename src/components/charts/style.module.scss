@@ -3,16 +3,28 @@
 
 //———————————————————————————————— main chart ————————————————————————————————
 .chart-header {
-  @include mixins.displayFlex(space-between, stretch);
+  @include mixins.displayFlex(space-between, stretch, 8px, column);
+  @include mixins.minScreen(2xl) {
+    @include mixins.displayFlex(space-between, stretch);
+  }
+
   @include mixins.setTextColor(
     variables.$gray-color-1,
     variables.$light-color-3
   );
-  padding: 25px;
+  padding: 10px;
+  @include mixins.minScreen(2xl) {
+    padding: 25px;
+  }
   text-transform: capitalize;
 
   & > div {
-    @include mixins.displayFlex(flex-end, stretch, 30px);
+    @include mixins.displayFlex(flex-end, stretch, 30px, column);
+    flex-wrap: wrap;
+    @include mixins.minScreen(2xl) {
+      @include mixins.displayFlex(flex-end, stretch, 30px);
+      flex-wrap: nowrap;
+    }
   }
 
   margin-bottom: 10px;

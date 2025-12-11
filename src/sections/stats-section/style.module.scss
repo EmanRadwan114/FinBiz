@@ -10,8 +10,14 @@
   );
 
   .sec-container {
-    @include mixins.minScreen(lg);
-    max-width: 80%;
+    max-width: 95%;
+
+    @include mixins.minScreen(xl) {
+      max-width: 92%;
+    }
+    @include mixins.minScreen(3xl) {
+      max-width: 80%;
+    }
   }
   .stats-card {
     @include mixins.setBgColor(
@@ -19,7 +25,10 @@
       variables.$dark-color-2
     );
     box-shadow: 2px 10px 81px -8px rgba($color: #000000, $alpha: 0.14);
-    padding: 38px 30px;
+    padding: 10px;
+    @include mixins.minScreen(xl) {
+      padding: 38px 30px;
+    }
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -27,10 +36,22 @@
     -o-border-radius: 20px;
 
     .profit-cards {
-      @include mixins.displayGrid(15, 25px, 20px);
+      @include mixins.displayGrid(1, 25px, 20px);
+
+      @include mixins.minScreen(md) {
+        @include mixins.displayGrid(12, 25px, 20px);
+      }
+      @include mixins.minScreen(xl) {
+        @include mixins.displayGrid(15, 25px, 20px);
+      }
 
       .profit-card {
-        grid-column: span 5;
+        @include mixins.minScreen(md) {
+          grid-column: span 6;
+        }
+        @include mixins.minScreen(xl) {
+          grid-column: span 5;
+        }
 
         &:first-of-type {
           & span {
@@ -50,13 +71,30 @@
       }
 
       .balance {
-        grid-column: span 3;
+        @include mixins.minScreen(md) {
+          grid-column: span 6;
+        }
+        @include mixins.minScreen(xl) {
+          grid-column: span 3;
+        }
       }
       .chart {
-        grid-column: span 9;
+        @include mixins.minScreen(md) {
+          grid-column: span 12;
+        }
+        @include mixins.minScreen(xl) {
+          grid-column: span 9;
+        }
+
+        overflow: auto;
       }
       .employee {
-        grid-column: span 3;
+        @include mixins.minScreen(md) {
+          grid-column: span 6;
+        }
+        @include mixins.minScreen(xl) {
+          grid-column: span 3;
+        }
       }
     }
   }
