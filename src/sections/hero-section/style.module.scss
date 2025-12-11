@@ -69,12 +69,13 @@
         variables.$base-color-light
       );
 
+      font-size: 40px;
+
       @include mixins.minScreen(lg) {
         font-size: 72px;
         line-height: 84px;
       }
 
-      font-size: 40px;
       font-weight: 700;
       margin-bottom: 15px;
     }

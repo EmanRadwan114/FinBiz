@@ -92,11 +92,11 @@
       padding: 48px 52px;
 
       & > h3 > span {
+        font-size: 30px;
         @include mixins.minScreen(xl) {
           font-size: 48px;
           line-height: 72px;
         }
-        font-size: 30px;
       }
 
       & > p {
