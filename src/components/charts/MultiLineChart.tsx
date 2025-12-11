@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef, useMemo } from "react";
 import { Line } from "react-chartjs-2";
-// The 'next-themes' dependency is assumed to be available in the user's environment.
 import { useTheme } from "next-themes";
 import {
   Chart as ChartJS,
@@ -12,6 +11,9 @@ import {
   Tooltip,
   Legend,
   Filler,
+  type ChartData,
+  type ChartOptions,
+  Chart,
 } from "chart.js";
 import StatsCard from "../ui/stats-card/StatsCard";
 import styles from "./style.module.scss";
@@ -27,41 +29,28 @@ ChartJS.register(
   Filler
 );
 
-const labels = ["", "", "", "", "", "", "", "", "", ""];
-
-// Data points for the solid blue line (matches the image's primary line shape)
-const primaryDataPoints = [
-  1100, // Start low
-  2000,
-  2100,
-  1300, // Sharp drop
-  1500,
-  3000,
-  2900,
-  4500,
-  5500, // High peak
-  5200, // Slight drop at end
-  6000, // Final peak (if you want 11 points)
+// --- Static Data ---
+const labels: string[] = ["", "", "", "", "", "", "", "", "", ""];
+const primaryDataPoints: number[] = [
+  1100, 2000, 2100, 1300, 1500, 3000, 2900, 4500, 5500, 5200, 6000,
+];
+const secondaryDataPoints: number[] = [
+  500, 1100, 800, 400, 600, 1800, 1500, 3100, 3500, 4000, 3800,
 ];
 
-// Data points for the dashed gray line (mirrors the primary line's shape but lower)
-const secondaryDataPoints = [
-  500, // Start low
-  1100,
-  800,
-  400, // Sharp drop
-  600,
-  1800,
-  1500,
-  3100,
-  3500,
-  4000,
-  3800, // Final point (if you want 11 points)
-];
+// --- Types and Theme Logic ---
+type ChartColors = {
+  tickColor: string;
+  gridColor: string;
+  primaryBorder: string;
+  secondaryBorder: string;
+  pointBg: string;
+  containerBg: string;
+};
 
-const getChartColors = (theme: string | undefined) => {
-  const primaryColor = "#1e40af"; // A vibrant blue
-  const secondaryColor = "#6b7280"; // A standard gray
+const getChartColors = (theme: string | undefined): ChartColors => {
+  const primaryColor = "#1e40af";
+  const secondaryColor = "#6b7280";
 
   if (theme === "dark") {
     return {
@@ -84,55 +73,52 @@ const getChartColors = (theme: string | undefined) => {
   }
 };
 
-const MultiLineChart = () => {
-  const chartRef = useRef(null);
+// --- Component ---
+const MultiLineChart: React.FC = () => {
+  const chartRef = useRef<Chart<"line"> | null>(null);
   const { resolvedTheme } = useTheme();
 
-  const [chartData, setChartData] = useState({
-    labels,
-    datasets: [],
-  });
-  const [chartOptions, setChartOptions] = useState({});
+  // Calculate colors synchronously based on theme
+  const colors = getChartColors(resolvedTheme);
 
-  useEffect(() => {
-    const colors = getChartColors(resolvedTheme);
-    const chart = chartRef.current;
-
-    if (!chart) return;
-
-    // Set chart data for multiple lines
-    setChartData({
+  // Use useMemo to calculate chart data (data depends only on colors/theme)
+  const chartData = useMemo<ChartData<"line">>(
+    () => ({
       labels,
       datasets: [
         {
           label: "Primary Data",
           data: primaryDataPoints,
           borderColor: colors.primaryBorder,
-          backgroundColor: "transparent", // No fill for multiple lines
+          backgroundColor: "transparent",
           fill: false,
           pointBackgroundColor: colors.pointBg,
           pointBorderColor: colors.primaryBorder,
           pointHoverRadius: 7,
-          pointRadius: 0, // Hide points
+          pointRadius: 0,
           borderWidth: 2,
         },
         {
           label: "Secondary Data",
           data: secondaryDataPoints,
           borderColor: colors.secondaryBorder,
-          backgroundColor: "transparent", // No fill for multiple lines
+          backgroundColor: "transparent",
           fill: false,
-          borderDash: [5, 5], // Dashed line style
+          borderDash: [5, 5],
           pointBackgroundColor: colors.pointBg,
           pointBorderColor: colors.secondaryBorder,
           pointHoverRadius: 7,
-          pointRadius: 0, // Hide points
+          pointRadius: 0,
           borderWidth: 2,
         },
       ],
-    });
+    }),
+    [colors]
+  );
 
-    setChartOptions({
+  // Use useMemo to calculate chart options (options depend only on colors/theme)
+  const chartOptions = useMemo<ChartOptions<"line">>(
+    () => ({
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
@@ -147,18 +133,23 @@ const MultiLineChart = () => {
       scales: {
         x: {
           display: false,
-          grid: { drawBorder: false, display: false },
+          grid: {}, // Empty grid config is type-safe
+          border: {
+            display: false, // Hides axis line
+          },
         },
         y: {
           display: false,
-          grid: { drawBorder: false, display: false },
+          grid: {}, // Empty grid config is type-safe
+          border: {
+            display: false, // Hides axis line
+          },
         },
       },
       backgroundColor: "rgba(0, 0, 0, 0)",
-    });
-  }, [resolvedTheme]);
-
-  const colors = getChartColors(resolvedTheme);
+    }),
+    []
+  );
 
   return (
     <div className={styles["multiline-chart"]}>
@@ -169,6 +160,7 @@ const MultiLineChart = () => {
             height: 200,
           }}
         >
+          {/* Data and options are now derived from useMemo */}
           <Line ref={chartRef} data={chartData} options={chartOptions} />
         </div>
       </StatsCard>

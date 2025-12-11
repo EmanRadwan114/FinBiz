@@ -11,6 +11,9 @@ import {
   Tooltip,
   Legend,
   Filler,
+  type ChartData,
+  type ChartOptions,
+  Chart,
 } from "chart.js";
 import StatsCard from "../ui/stats-card/StatsCard";
 import styles from "./style.module.scss";
@@ -27,12 +30,22 @@ ChartJS.register(
   Filler
 );
 
-const labels = ["", "", "", "", "", "", "", "", "", "", ""];
-const dataPoints = [
+const labels: string[] = ["", "", "", "", "", "", "", "", "", "", ""];
+const dataPoints: number[] = [
   1100, 2000, 2100, 1300, 1500, 3000, 2900, 4500, 5500, 5200, 6000,
 ];
 
-const getChartColors = (theme: string | undefined) => {
+type ChartColors = {
+  tickColor: string;
+  gridColor: string;
+  datasetBorder: string;
+  pointBg: string;
+  gradientStart: string;
+  gradientEnd: string;
+  containerBg: string;
+};
+
+const getChartColors = (theme: string | undefined): ChartColors => {
   const tealColor = "#4DC5AE";
 
   if (theme === "dark") {
@@ -58,15 +71,15 @@ const getChartColors = (theme: string | undefined) => {
   }
 };
 
-const SingleLineChart = () => {
-  const chartRef = useRef(null);
+const SingleLineChart: React.FC = () => {
+  const chartRef = useRef<Chart<"line"> | null>(null);
   const { resolvedTheme } = useTheme();
 
-  const [chartData, setChartData] = useState({
+  const [chartData, setChartData] = useState<ChartData<"line">>({
     labels,
     datasets: [],
   });
-  const [chartOptions, setChartOptions] = useState({});
+  const [chartOptions, setChartOptions] = useState<ChartOptions<"line">>({});
 
   useEffect(() => {
     const colors = getChartColors(resolvedTheme);
@@ -112,11 +125,16 @@ const SingleLineChart = () => {
       scales: {
         x: {
           display: false, // Hide X-axis completely
-          grid: { drawBorder: false },
+          grid: {
+            // FIX: Removed 'drawBorder: false' as it is not a property of GridLineOptions.
+            // The scale border is controlled elsewhere (or hidden by display: false).
+          },
         },
         y: {
           display: false, // Hide Y-axis completely
-          grid: { drawBorder: false },
+          grid: {
+            // FIX: Removed 'drawBorder: false' as it is not a property of GridLineOptions.
+          },
         },
       },
       backgroundColor: "rgba(0, 0, 0, 0)", // Ensure canvas itself is transparent
