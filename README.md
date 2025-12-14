@@ -30,3 +30,12 @@ This landing page was implemented based on a free design from the Figma Communit
 - Accurate spacing, typography, colors, and layout
 - Fully responsive implementation across devices
 - Clean component breakdown matching the design structure
+
+## ⚡ Built With Vite
+
+This project uses **Vite** for fast development and optimized production builds.
+
+## 📦 Getting Started
+
+npm install  
+npm run dev
