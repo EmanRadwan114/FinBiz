@@ -16,10 +16,7 @@ const EmployeeInfo: React.FC = () => {
     <div className={styles["employee-info"]}>
       {employeeKeys.map((key) => (
         <div className={styles.employee} key={key}>
-          <h3 className={styles.title}>
-            {/* Key mapping: dashboard.categories.[key] */}
-            {t(`dashboard.categories.${key}`)}
-          </h3>
+          <h3 className={styles.title}>{t(`dashboard.categories.${key}`)}</h3>
           <div className={styles.placeholder}>
             <div></div>
             <div></div>

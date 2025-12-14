@@ -8,7 +8,9 @@
   }
 
   .content {
-    max-width: 65%;
+    @include mixins.minScreen(sm) {
+      max-width: 65%;
+    }
     text-align: center;
 
     & :first-child {

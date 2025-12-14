@@ -151,6 +151,9 @@ footer {
 
   .fourth-col {
     flex-grow: 1;
+    @include mixins.minScreen(3xl) {
+      max-width: 25%;
+    }
   }
 
   .copyright {

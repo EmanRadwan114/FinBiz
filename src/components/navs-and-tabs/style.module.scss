@@ -13,28 +13,35 @@
   padding-block-end: 142px;
 
   ul {
-    @include mixins.displayFlex(center, center, 8px);
-    flex-wrap: wrap;
+    @include mixins.displayFlex(center, center, 0);
+    padding: 3px 4px;
+
     @include mixins.minScreen(sm) {
-      @include mixins.displayFlex(center, center);
-      flex-wrap: nowrap;
+      gap: 8px;
+      padding: 6px 8px;
     }
+
     background-color: rgba($color: variables.$base-color-light, $alpha: 0.2);
     backdrop-filter: blur(64.3px);
     -webkit-backdrop-filter: blur(64.3px);
 
     border: 1px solid variables.$primary-bg-color;
-    padding: 6px 8px;
 
     li {
       @include mixins.setTextColor(
         variables.$dark-color-5,
         variables.$base-color-light
       );
-      padding: 12px 22px;
+      padding: 12px 4px;
+      font-size: variables.$font-size-14;
+
+      @include mixins.minScreen(sm) {
+        padding: 12px 22px;
+        font-size: variables.$font-size-18;
+      }
+
       text-transform: capitalize;
       font-weight: 500;
-      font-size: variables.$font-size-18;
 
       &:last-child {
         color: variables.$dark-color-5 !important;

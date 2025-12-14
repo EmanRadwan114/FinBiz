@@ -21,7 +21,8 @@ const ReviewsSlider: React.FC = () => {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
   const isSmScreen = window.innerWidth <= 600;
-  const isMdScreen = window.innerWidth <= 900;
+  const isMdScreen = window.innerWidth <= 992;
+  const isXlScreen = window.innerWidth <= 1920;
 
   const {
     data: posts,
@@ -68,7 +69,9 @@ const ReviewsSlider: React.FC = () => {
         <Swiper
           modules={[Autoplay, Navigation]}
           spaceBetween={30}
-          slidesPerView={isSmScreen ? 1 : isMdScreen ? 1.6 : 2.55}
+          slidesPerView={
+            isSmScreen ? 1 : isMdScreen ? 1.6 : isXlScreen ? 2.55 : 5
+          }
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           autoplay={{
             delay: 1500,

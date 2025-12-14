@@ -29,13 +29,13 @@
     @include mixins.displayFlex(space-between);
     padding-inline: 20px;
 
-    @include mixins.minScreen(lg) {
+    padding-inline: 20px;
+    @include mixins.minScreen(2xl) {
+      padding-inline: 40px;
+      max-width: 75%;
       @include mixins.displayFlex();
     }
     margin: 0 auto;
-    max-width: 1400px;
-
-    padding-inline: 40px;
 
     & > * {
       width: calc(100% / 3);
@@ -57,7 +57,7 @@
     }
 
     .nav-links {
-      @include mixins.displayFlex(start);
+      @include mixins.displayFlex(center);
 
       li {
         @include mixins.setTextColor("inherit", variables.$gray-color-5);
