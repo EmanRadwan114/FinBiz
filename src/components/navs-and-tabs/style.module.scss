@@ -14,7 +14,7 @@
 
   ul {
     @include mixins.displayFlex(center, center, 0);
-    padding: 4px 6px;
+    padding: 4px 4px;
 
     @include mixins.minScreen(sm) {
       gap: 8px;
@@ -46,7 +46,7 @@
       &:last-child {
         color: variables.$dark-color-5 !important;
         background-color: variables.$base-color-light;
-        padding-inline: 10px;
+        padding-inline: 12px;
       }
     }
 
